@@ -1,0 +1,107 @@
+:root {
+    --white: #ffffff;
+    --gray:#5c616b;
+    --gray2:#757880;
+    --black:#1e2025;
+    --red:#bb0000;
+    --blue1:#daf6ff;
+    --blue2:#0aafe6;
+    --whiteRed:#f3b7b7;
+    --whiteYellow:#f5f5b4;
+    --whiteGreen:#c0f5c7;
+}
+*{
+    box-sizing: border-box;
+    margin: 0px;
+}
+body{
+    background-color: var(--gray);
+    color: var(--white);
+}
+
+/* Header */
+.header{
+    background-color: var(--black);
+    height: 10vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1%;
+}
+.butHome span{
+    font-size: 3rem;
+    color: var(--white);
+}
+
+.butHome:hover .material-symbols-outlined {
+    filter: drop-shadow(0 0 5px var(--white));
+}
+
+.userInfo{
+    border: 1px solid var(--white);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10px;
+    gap: 10px;
+    height: 80%;
+    align-items: center;
+    font-size: 1.5rem;
+}
+
+.userInfo span{
+    font-size: 2rem;
+}
+
+/* MainPanel */
+.mainPanel{
+    width: 100vw;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Div del inventario */
+.inventDiv{
+    width: 60%;
+    height: 40%;
+    margin-top: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.iventTittle{
+    font-size: 3rem;
+}
+
+.inventCardsDiv{
+    display:  flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.inventCard{
+    border: 1px solid var(--white);
+    padding: 5%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.inventCard span{
+    font-size: 4rem;
+}
+
+.inventCard:hover{
+    background-color: var(--white);
+    color: #1e2025;
+    cursor: pointer;
+}
