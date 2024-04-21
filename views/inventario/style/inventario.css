@@ -9,10 +9,10 @@
     margin: 0px;
 }
 body{
-    color: var(--white);
     height: 100vh;
     width: 100vw;
     padding: 2%;
+    overflow: hidden;
 }
 
 .userInfo{
@@ -22,7 +22,7 @@ body{
     height: 20%;
 }
 
-.userInfo, .mainPanel{
+.shadowBorder{
     border: 1px solid var(--gray);
     border-radius: 10px;
     box-shadow: 5px 5px 10px 0px var(--black);
@@ -84,3 +84,122 @@ body{
     color: var(--black);
     border: 1px solid var(--black);
 }
+
+/* catalogoDiv */
+.catalMainDiv{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    z-index: 1;
+    background-color: var(--white);
+    display: flex;
+    flex-direction: column;
+    padding: 2%;
+    justify-content: space-around;
+}
+.panelDiv{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1%;
+    height: 10%;
+}
+
+.panelDiv span{
+    font-size: 3rem;
+    color: var(--black);
+}
+
+.panelDiv button{
+    font-size: 1.5rem;
+    background-color: var(--gray);
+    color: var(--black);
+    border: 1px solid var(--black);
+}
+
+.panelDiv button:hover{
+    background-color: var(--paleOrange);
+    cursor: pointer;
+}
+
+/* Catalogo */
+.catalDiv{
+    height: 80%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    padding: 1%;
+}
+
+.catalInfo{
+    width: 98%;
+    background-color: red;
+    height: 100%;
+}
+.modOrNewObjectMain{
+    width: 2%;
+    display: flex;
+    flex-direction: row;
+    border: 1px solid var(--black);
+    border-radius: 10px;
+}
+.modorNewObjectButt{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+}
+.modorNewObjectButt:hover{
+    background-color: var(--paleOrange);
+    cursor: pointer;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius:10px ;
+}
+
+.modOrNewObject{
+    display: none;
+    width: 90%;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.modOrNewObject button{
+    font-size: 1.5rem;
+    background-color: var(--gray);
+    color: var(--black);
+    border: 1px solid var(--black);
+    border-radius: 100%;
+}
+
+.modOrNewObject button:hover{
+    background-color: var(--paleOrange);
+    cursor: pointer;
+}
+
+.creatObject, .modObject{
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1%;
+}
+
+.creatDuo, .modDuo{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+

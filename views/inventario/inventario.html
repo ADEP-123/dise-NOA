@@ -11,13 +11,13 @@
 </head>
 
 <body>
-    <div class="userInfo">
+    <div class="userInfo shadowBorder">
 
     </div>
     <div class="modulSel">
 
     </div>
-    <div class="mainPanel">
+    <div class="mainPanel shadowBorder">
         <div class="inventDiv">
             <h1 class="iventTittle">Tus Inventarios</h1>
             <div class="inventCardsDiv">
@@ -38,10 +38,63 @@
         </div>
     </div>
 
-    <div class="catalDiv">
+    <div class="catalMainDiv">
+        <div class="panelDiv shadowBorder">
+            <a href="">
+                <span class="material-symbols-outlined butonSpan">
+                    home
+                </span>
+            </a>
+            <h1>Catalogo de items</h1>
+            <button id="closeWindow">X</button>
+        </div>
         
+        <div class="catalDiv shadowBorder">
+            <div class="catalInfo"></div>
+            <div class="modOrNewObjectMain">
+                <div class="modorNewObjectButt">←</div>
+                <div class="modOrNewObject">
+                    <div class="creatObject">
+                        <h2>Crear Producto</h2>
+                        <div class="creatDuo">
+                            <p>Titulo:</p>
+                            <input type="text" id="titulo">
+                        </div>
+                        <div class="creatDuo">
+                            <p>Descripcion:</p>
+                            <input type="text" id="descr">
+                        </div>
+                        <div class="creatDuo">
+                            <p>Cantidad:</p>
+                            <input type="text" id="cant">
+                        </div>
+                        <button>+</button>
+                    </div>
+                    <div class="modObject">
+                        <h2>Modificar Producto</h2>
+                        <div class="modDuo">
+                            <p>Producto:</p>
+                            <select name="" id="modObjSelect"></select>
+                        </div>
+                        <div class="modDuo">
+                            <p>Titulo:</p>
+                            <input type="text" id="titulo">
+                        </div>
+                        <div class="modDuo">
+                            <p>Descripcion:</p>
+                            <input type="text" id="descr">
+                        </div>
+                        <div class="modDuo">
+                            <p>Cantidad:</p>
+                            <input type="text" id="cant">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
+    
+    <script src="scripts/inventario.js"></script>
 </body>
 
 </html>
