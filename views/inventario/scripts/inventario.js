@@ -1,3 +1,5 @@
+import newRowFunction from "./newRow.js";
+
 const catalButton = document.querySelector(".catalButton");
 
 catalButton.addEventListener("click", e => {
@@ -7,6 +9,8 @@ catalButton.addEventListener("click", e => {
 })
 
 // catalogo
+const lastProducts = localStorage.getItem("products")
+
 const openModMenuCat = document.querySelector(".modorNewObjectButt");
 const catalInfo = document.querySelector(".catalInfo");
 let ispOpenCat = false;
@@ -30,5 +34,20 @@ openModMenuCat.addEventListener("click", e => {
         modObjectSide.style.display = "none"
         ispOpenCat = false
     }
-
 })
+
+const catalogo = document.querySelector("#catal")
+
+
+if (lastProducts) {
+    console.log(lastProducts);
+} else {
+    newRowFunction(
+        0,
+        "ej",
+        "ej",
+        0,
+        " https://cdn-icons-png.flaticon.com/512/1554/1554591.png"
+    )
+
+}

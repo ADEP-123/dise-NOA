@@ -136,9 +136,46 @@ body{
 
 .catalInfo{
     width: 98%;
-    background-color: red;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2%;
 }
+
+.searchProductDiv{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 1%;
+}
+
+.searchProductDiv select{
+    width: 80%;
+}
+
+.searchProductDiv span{
+    font-size: 2rem;
+}
+
+.searchProductDiv span:hover{
+    color: var(--paleOrange);
+    cursor: pointer;
+}
+
+.catal,.catal th{
+    border: 2px solid black;
+    border-collapse:collapse ;
+}
+
+.catal tr, .catal td{
+    border: 1px solid black;
+    text-align: center;
+}
+
+.catal img{
+    height: 80px;
+}
+
 .modOrNewObjectMain{
     width: 2%;
     display: flex;
@@ -154,6 +191,7 @@ body{
     justify-content: center;
     align-items: center;
     font-size: 2rem;
+    border: 1px solid var(--black);
 }
 .modorNewObjectButt:hover{
     background-color: var(--paleOrange);
@@ -200,6 +238,11 @@ body{
     justify-content: space-between;
     width: 100%;
     flex-wrap: wrap;
+}
+.delDuo{
+    justify-content: center;
+    align-items: center;
+    gap: 5%;
 }
 
 

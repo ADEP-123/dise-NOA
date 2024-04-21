@@ -45,15 +45,41 @@
                     home
                 </span>
             </a>
-            <h1>Catalogo de items</h1>
+            <h1>Catalogo de productos</h1>
             <button id="closeWindow">X</button>
         </div>
-        
+
         <div class="catalDiv shadowBorder">
-            <div class="catalInfo"></div>
+
+            <div class="catalInfo">
+
+                <div class="searchProductDiv">
+                    <h2>Producto</h2>
+                    <select id="searcProdSelect"></select>
+                    <span class="material-symbols-outlined butonSpan">
+                        search
+                    </span>
+                </div>
+
+                <table class="catal" id="catal">
+                    <tr>
+                        <th>ID</th>
+                        <th>Tiutlo</th>
+                        <th>Descripcion</th>
+                        <th>Cantidad</th>
+                        <th>Imagen</th>
+                        <th>Proveedor</th>
+                    </tr>
+                </table>
+
+            </div>
+
             <div class="modOrNewObjectMain">
+
                 <div class="modorNewObjectButt">←</div>
+
                 <div class="modOrNewObject">
+
                     <div class="creatObject">
                         <h2>Crear Producto</h2>
                         <div class="creatDuo">
@@ -68,13 +94,18 @@
                             <p>Cantidad:</p>
                             <input type="text" id="cant">
                         </div>
+                        <div class="creatDuo">
+                            <p>Imagen:</p>
+                            <input type="text" id="titulo">
+                        </div>
                         <button>+</button>
                     </div>
+
                     <div class="modObject">
                         <h2>Modificar Producto</h2>
                         <div class="modDuo">
                             <p>Producto:</p>
-                            <select name="" id="modObjSelect"></select>
+                            <select id="modProdSelect"></select>
                         </div>
                         <div class="modDuo">
                             <p>Titulo:</p>
@@ -88,13 +119,26 @@
                             <p>Cantidad:</p>
                             <input type="text" id="cant">
                         </div>
+                        <div class="modDuo">
+                            <p>Imagen:</p>
+                            <input type="text" id="cant">
+                        </div>
+                        <div class="modDuo delDuo">
+                            <p>Eliminar:</p>
+                            <button id="deltButt">X</button>
+                        </div>
+
                     </div>
+
                 </div>
+
             </div>
+
         </div>
+
     </div>
-    
-    <script src="scripts/inventario.js"></script>
+
+    <script src="scripts/inventario.js" type="module"></script>
 </body>
 
 </html>
