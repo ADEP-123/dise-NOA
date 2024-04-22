@@ -1,4 +1,5 @@
 import createProduct from "./createProduct.js";
+import llenarSelect from "./llenarSelect.js";
 import newRowFunction from "./newRow.js";
 
 const catalButton = document.querySelector(".catalButton");
@@ -6,7 +7,6 @@ const catalButton = document.querySelector(".catalButton");
 catalButton.addEventListener("click", e => {
     e.preventDefault();
     e.stopPropagation();
-
 })
 
 // catalogo
@@ -25,7 +25,7 @@ if (lastProducts) {
             element.imag
         )
     });
-
+    llenarSelect(lastProducts)
 } else {
     lastProducts = []
     newRowFunction(
@@ -88,6 +88,7 @@ creatButton.addEventListener("click", e => {
         lastProducts = createProduct(lastProducts, inputsCreate)
         localStorage.removeItem('products');
         localStorage.setItem('products', JSON.stringify(lastProducts));
+        llenarSelect(lastProducts);
     } else {
         console.error("no puede haber campos vacios");
     }
