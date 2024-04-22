@@ -1,10 +1,9 @@
-const newRowFunction = (id, tit, desc, cant, img) => {
+const newRowFunction = (id, tit, desc, img) => {
     const catalogo = document.querySelector("#catal")
     const newRow = document.createElement("tr")
     newRow.innerHTML =/*html*/`<td>${id}</td>
     <td>${tit}</td>
     <td>${desc}</td>
-    <td>${cant}</td>
     <td><img src="${img}">
     </td>
     <td>-</td>`

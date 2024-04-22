@@ -1,3 +1,4 @@
+import createProduct from "./createProduct.js";
 import newRowFunction from "./newRow.js";
 
 const catalButton = document.querySelector(".catalButton");
@@ -9,8 +10,33 @@ catalButton.addEventListener("click", e => {
 })
 
 // catalogo
-const lastProducts = localStorage.getItem("products")
+const catalogo = document.querySelector("#catal")
 
+//Renderizado de tabla
+//localStorage.removeItem('products');
+let lastProducts = localStorage.getItem("products")
+if (lastProducts) {
+    lastProducts = JSON.parse(lastProducts);
+    lastProducts.forEach(element => {
+        newRowFunction(
+            element.id,
+            element.titulo,
+            element.desc,
+            element.imag
+        )
+    });
+
+} else {
+    lastProducts = []
+    newRowFunction(
+        0,
+        "ej",
+        "ej",
+        "https://cdn-icons-png.flaticon.com/512/1554/1554591.png"
+    )
+}
+
+// Apertura y cierre del menu de creacion o modificacion
 const openModMenuCat = document.querySelector(".modorNewObjectButt");
 const catalInfo = document.querySelector(".catalInfo");
 let ispOpenCat = false;
@@ -36,18 +62,36 @@ openModMenuCat.addEventListener("click", e => {
     }
 })
 
-const catalogo = document.querySelector("#catal")
+//Creacion de nuevo elemento
+const createZone = document.querySelector("#createZone")
+const creatButton = createZone.querySelector("button");
+creatButton.addEventListener("click", e => {
+    e.preventDefault()
+    e.stopPropagation()
+    const inputsCreate = createZone.querySelectorAll("input")
+    let anyfalse = false;
+    inputsCreate.forEach(element => {
+        element.value == null ? anyfalse = true : null;
+        element.value == "" ? anyfalse = true : null;
+    });
+    if (anyfalse == false) {
+        if (lastProducts.length == 0) {
+            const defTr = catalogo.querySelectorAll("tr")[1];
+            catalogo.removeChild(defTr)
+        }
+        newRowFunction(
+            lastProducts.length,
+            inputsCreate[0].value,
+            inputsCreate[1].value,
+            inputsCreate[2].value
+        )
+        lastProducts = createProduct(lastProducts, inputsCreate)
+        localStorage.removeItem('products');
+        localStorage.setItem('products', JSON.stringify(lastProducts));
+    } else {
+        console.error("no puede haber campos vacios");
+    }
+
+})
 
 
-if (lastProducts) {
-    console.log(lastProducts);
-} else {
-    newRowFunction(
-        0,
-        "ej",
-        "ej",
-        0,
-        " https://cdn-icons-png.flaticon.com/512/1554/1554591.png"
-    )
-
-}

@@ -239,7 +239,7 @@ body{
     width: 100%;
     flex-wrap: wrap;
 }
-.delDuo{
+.buttDuodiv{
     justify-content: center;
     align-items: center;
     gap: 5%;

@@ -66,7 +66,6 @@
                         <th>ID</th>
                         <th>Tiutlo</th>
                         <th>Descripcion</th>
-                        <th>Cantidad</th>
                         <th>Imagen</th>
                         <th>Proveedor</th>
                     </tr>
@@ -80,7 +79,7 @@
 
                 <div class="modOrNewObject">
 
-                    <div class="creatObject">
+                    <div class="creatObject" id="createZone">
                         <h2>Crear Producto</h2>
                         <div class="creatDuo">
                             <p>Titulo:</p>
@@ -91,14 +90,14 @@
                             <input type="text" id="descr">
                         </div>
                         <div class="creatDuo">
-                            <p>Cantidad:</p>
-                            <input type="text" id="cant">
-                        </div>
-                        <div class="creatDuo">
                             <p>Imagen:</p>
-                            <input type="text" id="titulo">
+                            <input type="text" id="imag">
                         </div>
-                        <button>+</button>
+                        <div class="creatDuo buttDuodiv">
+                            <p>Crear:</p>
+                            <button>+</button>
+                        </div>
+
                     </div>
 
                     <div class="modObject">
@@ -116,14 +115,10 @@
                             <input type="text" id="descr">
                         </div>
                         <div class="modDuo">
-                            <p>Cantidad:</p>
-                            <input type="text" id="cant">
-                        </div>
-                        <div class="modDuo">
                             <p>Imagen:</p>
                             <input type="text" id="cant">
                         </div>
-                        <div class="modDuo delDuo">
+                        <div class="modDuo buttDuodiv">
                             <p>Eliminar:</p>
                             <button id="deltButt">X</button>
                         </div>
