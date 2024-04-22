@@ -1,10 +1,12 @@
 import createProduct from "./createProduct.js";
 import llenarSelect from "./llenarSelect.js";
 import newRowFunction from "./newRow.js";
+import traerInfo from "./traerInfo.js";
 
 const catalButton = document.querySelector(".catalButton");
 const mainPanel = document.querySelector(".mainPanel");
 const catalMainDiv = document.querySelector(".catalMainDiv");
+const modProdSelect = document.querySelector("#modProdSelect");
 
 let deplCatMain = false;
 catalButton.addEventListener("click", e => {
@@ -40,6 +42,7 @@ if (lastProducts) {
         )
     });
     llenarSelect(lastProducts)
+    traerInfo(lastProducts, Number(modProdSelect.value));
 } else {
     lastProducts = []
     newRowFunction(
@@ -109,4 +112,11 @@ creatButton.addEventListener("click", e => {
 
 })
 
+//Modificar elemento
+
+modProdSelect.addEventListener("change", e => {
+    e.preventDefault();
+    e.stopPropagation();
+    traerInfo(lastProducts, Number(modProdSelect.value));
+})
 

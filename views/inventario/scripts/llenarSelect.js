@@ -1,7 +1,6 @@
 const llenarSelect = (products) => {
     const selectProduct = document.querySelector("#searcProdSelect");
     const selectModProduct = document.querySelector("#modProdSelect");
-    console.log({ selectProduct, selectModProduct });
     selectProduct.innerHTML = "";
     selectModProduct.innerHTML = "";
 

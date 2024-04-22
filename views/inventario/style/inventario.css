@@ -245,4 +245,9 @@ body{
     gap: 5%;
 }
 
+#saveMod:hover{
+    color: var(--paleOrange);
+    cursor: pointer;
+}
+
 
