@@ -9,7 +9,6 @@ const llenarSelectsInvent = (productsCat, productsInvent) => {
             const newOption = document.createElement("option");
             newOption.value = element.id;
             newOption.innerHTML = `${element.id}-${element.titulo}`
-
             adProdSelect.insertAdjacentElement("beforeend", newOption);
         }
 

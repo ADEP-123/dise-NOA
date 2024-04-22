@@ -249,7 +249,7 @@ body{
     gap: 5%;
 }
 
-#saveMod:hover{
+#saveMod:hover, #saveModInvent:hover{
     color: var(--paleOrange);
     cursor: pointer;
 }

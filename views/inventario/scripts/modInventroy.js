@@ -8,7 +8,12 @@ const modInventory = (listInventory, id, type) => {
         });
 
     } else if (type == "modExist") {
-        const modObjectDiv = document.querySelector("#modObjectInvent");
+        const cantModInput = document.querySelector("#cantMod")
+        listInventory.forEach(element => {
+            if (element.idInvent == id) {
+                element.cantidad = cantModInput.value
+            }
+        });
     }
     return listInventory;
 }

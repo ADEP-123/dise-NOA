@@ -15,7 +15,7 @@ const catalButton = document.querySelector(".catalButton");
 const mainPanel = document.querySelector(".mainPanel");
 const catalMainDiv = document.querySelector(".catalMainDiv");
 const modProdSelect = document.querySelector("#modProdSelect");
-let lastInventary1 = JSON.parse(localStorage.getItem("inv1"))
+let lastInventary1 = localStorage.getItem("inv1")
 
 catalButton.addEventListener("click", e => {
     e.preventDefault();
@@ -129,11 +129,24 @@ const saveMod = document.querySelector("#saveMod");
 saveMod.addEventListener("click", e => {
     e.preventDefault();
     e.stopPropagation();
-    lastProducts = modProduct(lastProducts, Number(modProdSelect.value));
-    localStorage.removeItem('products');
-    localStorage.setItem('products', JSON.stringify(lastProducts));
-    renderAllInfo(lastProducts, null, "catalogo");
-    llenarSelect(lastProducts);
+    let anyEmpty = false;
+    const parentNode = saveMod.parentNode.parentNode;
+    const inputs = parentNode.querySelectorAll("input")
+    inputs.forEach(element => {
+        if (element.value == null || element.value == "") {
+            anyEmpty = true;
+        }
+    });
+    if (anyEmpty == false) {
+        lastProducts = modProduct(lastProducts, Number(modProdSelect.value));
+        localStorage.removeItem('products');
+        localStorage.setItem('products', JSON.stringify(lastProducts));
+        renderAllInfo(lastProducts, null, "catalogo");
+        llenarSelect(lastProducts);
+    } else {
+        alert("Todos los campos deben ser llenados pad efectuar la modificacion")
+    }
+
 })
 
 //Eliminar elemento
@@ -143,8 +156,6 @@ deltButt.addEventListener("click", e => {
     e.stopPropagation();
     let haveInvent = false;
     lastInventary1.forEach(element => {
-        console.log(modProdSelect.value);
-        console.log(element.idCatal);
         if (modProdSelect.value == element.idCatal) {
             if (Number(element.cantidad) != 0) {
                 haveInvent = true
@@ -184,6 +195,7 @@ backButt.addEventListener("click", e => {
 //localStorage.removeItem("inv1")
 
 if (lastInventary1) {
+    lastInventary1 = JSON.parse(lastInventary1)
     renderAllInfo(lastProducts, lastInventary1, "inventario")
 } else {
     lastInventary1 = []
@@ -201,6 +213,7 @@ llenarSelectsInvent(lastProducts, lastInventary1)
 const invent1Butt = document.querySelector("#invent1Butt")
 const inventMainDiv = document.querySelector("#invent1MainDiv")
 const inventario = document.querySelector("#invent")
+const modProdSelectInvent = document.querySelector("#modProdSelectInvent")
 invent1Butt.addEventListener("click", e => {
     e.preventDefault();
     e.stopPropagation();
@@ -259,3 +272,24 @@ adProductButon.addEventListener("click", e => {
 })
 
 //Modificar inventario
+
+modProdSelectInvent.addEventListener("change", e => {
+    e.preventDefault();
+    e.stopPropagation();
+    const cantModInput = document.querySelector("#cantMod")
+    lastInventary1.forEach(element => {
+        if (element.idInvent == modProdSelectInvent.value) {
+            cantModInput.value = Number(element.cantidad)
+        }
+    });
+})
+
+const saveModInvent = document.querySelector("#saveModInvent");
+saveModInvent.addEventListener("click", e => {
+    e.preventDefault();
+    e.stopPropagation();
+    lastInventary1 = modInventory(lastInventary1, modProdSelectInvent.value, "modExist")
+    localStorage.removeItem('inv1');
+    localStorage.setItem('inv1', JSON.stringify(lastInventary1));
+    renderAllInfo(lastProducts, lastInventary1, "inventario")
+})
