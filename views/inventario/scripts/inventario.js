@@ -1,4 +1,5 @@
 import createProduct from "./createProduct.js";
+import delProduct from "./delProduct.js";
 import llenarSelect from "./llenarSelect.js";
 import modProduct from "./modProduct.js";
 import newRowFunction from "./newRow.js";
@@ -122,3 +123,14 @@ saveMod.addEventListener("click", e => {
     llenarSelect(lastProducts);
 })
 
+//Eliminar elemento
+const deltButt = document.querySelector("#deltButt");
+deltButt.addEventListener("click", e => {
+    e.preventDefault();
+    e.stopPropagation();
+    lastProducts = delProduct(lastProducts, Number(modProdSelect.value));
+    localStorage.removeItem('products');
+    localStorage.setItem('products', JSON.stringify(lastProducts));
+    renderAllInfo(lastProducts);
+    llenarSelect(lastProducts);
+})
