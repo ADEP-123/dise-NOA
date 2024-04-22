@@ -140,6 +140,7 @@ body{
     display: flex;
     flex-direction: column;
     gap: 2%;
+    overflow-y: auto;
 }
 
 .searchProductDiv{
@@ -160,6 +161,9 @@ body{
 .searchProductDiv span:hover{
     color: var(--paleOrange);
     cursor: pointer;
+}
+.catal{
+    overflow-y: auto;
 }
 
 .catal,.catal th{
@@ -250,4 +254,42 @@ body{
     cursor: pointer;
 }
 
+.catalMainDiv, .invent1MainDiv{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    z-index: 1;
+    background-color: var(--white);
+    display: none;
+    flex-direction: column;
+    padding: 2%;
+    justify-content: space-around;
+}
+.panelDiv{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1%;
+    height: 10%;
+}
+
+.panelDiv span{
+    font-size: 3rem;
+    color: var(--black);
+}
+
+.panelDiv button{
+    font-size: 1.5rem;
+    background-color: var(--gray);
+    color: var(--black);
+    border: 1px solid var(--black);
+}
+
+.panelDiv button:hover{
+    background-color: var(--paleOrange);
+    cursor: pointer;
+}
 
