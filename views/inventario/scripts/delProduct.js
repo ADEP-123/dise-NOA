@@ -1,7 +1,7 @@
 const delProduct = (listaProductos, id) => {
     const newProducts = listaProductos;
 
-    newProducts.splice(id, 1);
+    newProducts[id] = {}
 
     return newProducts;
 }

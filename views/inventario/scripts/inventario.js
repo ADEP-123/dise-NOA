@@ -4,6 +4,7 @@ import llenarSelect from "./llenarSelect.js";
 import modProduct from "./modProduct.js";
 import newRowFunction from "./newRow.js";
 import renderAllInfo from "./renderAllInfo.js";
+import renderSearch from "./renderSearch.js";
 import traerInfo from "./traerInfo.js";
 
 const catalButton = document.querySelector(".catalButton");
@@ -134,3 +135,21 @@ deltButt.addEventListener("click", e => {
     renderAllInfo(lastProducts);
     llenarSelect(lastProducts);
 })
+
+//Buscar elemento
+const selectProduct = document.querySelector("#searcProdSelect");
+const searchButton = document.querySelector("#searchButt");
+searchButton.addEventListener("click", e => {
+    e.preventDefault();
+    e.stopPropagation();
+    const productId = Number(selectProduct.value)
+    renderSearch(lastProducts[productId])
+})
+
+const backButt = document.querySelector("#backButt");
+backButt.addEventListener("click", e => {
+    e.preventDefault();
+    e.stopPropagation();
+    renderAllInfo(lastProducts);
+})
+

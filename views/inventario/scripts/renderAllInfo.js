@@ -10,12 +10,14 @@ const renderAllInfo = (productsList) => {
     <th>Proveedor</th>
 </tr>`;
     productsList.forEach(element => {
-        newRowFunction(
-            element.id,
-            element.titulo,
-            element.desc,
-            element.imag
-        )
+        if (element.titulo) {
+            newRowFunction(
+                element.id,
+                element.titulo,
+                element.desc,
+                element.imag
+            )
+        }
     });
 }
 export default renderAllInfo
