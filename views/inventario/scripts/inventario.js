@@ -3,14 +3,28 @@ import llenarSelect from "./llenarSelect.js";
 import newRowFunction from "./newRow.js";
 
 const catalButton = document.querySelector(".catalButton");
+const mainPanel = document.querySelector(".mainPanel");
+const catalMainDiv = document.querySelector(".catalMainDiv");
 
+let deplCatMain = false;
 catalButton.addEventListener("click", e => {
     e.preventDefault();
     e.stopPropagation();
+    mainPanel.style.display = "none";
+    catalMainDiv.style.display = "flex";
+    deplCatMain = true
 })
 
 // catalogo
 const catalogo = document.querySelector("#catal")
+const closeCatalogButt = document.querySelector("#closeWindow")
+closeCatalogButt.addEventListener("click", e => {
+    e.preventDefault();
+    e.stopPropagation();
+    mainPanel.style.display = "flex";
+    catalMainDiv.style.display = "none";
+    deplCatMain = false
+})
 
 //Renderizado de tabla
 //localStorage.removeItem('products');

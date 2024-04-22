@@ -94,7 +94,7 @@ body{
     right: 0px;
     z-index: 1;
     background-color: var(--white);
-    display: flex;
+    display: none;
     flex-direction: column;
     padding: 2%;
     justify-content: space-around;
