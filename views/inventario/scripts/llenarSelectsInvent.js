@@ -15,14 +15,13 @@ const llenarSelectsInvent = (productsCat, productsInvent) => {
 
     });
 
-    productsInvent.forEach((element, index) => {
-        if (element.titulo) {
-            const newOption = document.createElement("option");
-            newOption.value = element.idInvent;
-            newOption.innerHTML = `${element.idInvent}-${productsCat[index].titulo}`
+    productsInvent.forEach(element => {
 
-            modProdSelectInvent.insertAdjacentElement("beforeend", newOption);
-        }
+        const newOption = document.createElement("option");
+        newOption.value = element.idInvent;
+        newOption.innerHTML = `${element.idInvent}-${productsCat[element.idCatal].titulo}`
+        modProdSelectInvent.insertAdjacentElement("beforeend", newOption);
+
 
     });
 

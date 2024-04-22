@@ -15,6 +15,7 @@ const catalButton = document.querySelector(".catalButton");
 const mainPanel = document.querySelector(".mainPanel");
 const catalMainDiv = document.querySelector(".catalMainDiv");
 const modProdSelect = document.querySelector("#modProdSelect");
+let lastInventary1 = JSON.parse(localStorage.getItem("inv1"))
 
 catalButton.addEventListener("click", e => {
     e.preventDefault();
@@ -140,11 +141,26 @@ const deltButt = document.querySelector("#deltButt");
 deltButt.addEventListener("click", e => {
     e.preventDefault();
     e.stopPropagation();
-    lastProducts = delProduct(lastProducts, Number(modProdSelect.value));
-    localStorage.removeItem('products');
-    localStorage.setItem('products', JSON.stringify(lastProducts));
-    renderAllInfo(lastProducts, null, "catalogo");
-    llenarSelect(lastProducts);
+    let haveInvent = false;
+    lastInventary1.forEach(element => {
+        console.log(modProdSelect.value);
+        console.log(element.idCatal);
+        if (modProdSelect.value == element.idCatal) {
+            if (Number(element.cantidad) != 0) {
+                haveInvent = true
+            }
+        }
+    });
+    if (haveInvent == false) {
+        lastProducts = delProduct(lastProducts, Number(modProdSelect.value));
+        localStorage.removeItem('products');
+        localStorage.setItem('products', JSON.stringify(lastProducts));
+        renderAllInfo(lastProducts, null, "catalogo");
+        llenarSelect(lastProducts);
+    } else {
+        alert("El elemento que intenta eliminar tiene inventario existente")
+    }
+
 })
 
 //Buscar elemento
@@ -166,7 +182,7 @@ backButt.addEventListener("click", e => {
 
 //inventario
 //localStorage.removeItem("inv1")
-let lastInventary1 = JSON.parse(localStorage.getItem("inv1"))
+
 if (lastInventary1) {
     renderAllInfo(lastProducts, lastInventary1, "inventario")
 } else {
@@ -241,3 +257,5 @@ adProductButon.addEventListener("click", e => {
         console.error("no puede haber campos vacios");
     }
 })
+
+//Modificar inventario
