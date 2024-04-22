@@ -16,6 +16,13 @@ const mainPanel = document.querySelector(".mainPanel");
 const catalMainDiv = document.querySelector(".catalMainDiv");
 const modProdSelect = document.querySelector("#modProdSelect");
 let lastInventary1 = localStorage.getItem("inv1")
+let invent1Tittle = localStorage.getItem("inv1Tittle")
+const inputTittle1 = document.querySelector("#inputTittle1");
+
+if (invent1Tittle) {
+    inputTittle1.value = JSON.parse(invent1Tittle)
+    document.querySelector("#inventName1").innerHTML = JSON.parse(invent1Tittle)
+}
 
 catalButton.addEventListener("click", e => {
     e.preventDefault();
@@ -217,8 +224,16 @@ const modProdSelectInvent = document.querySelector("#modProdSelectInvent")
 invent1Butt.addEventListener("click", e => {
     e.preventDefault();
     e.stopPropagation();
-    mainPanel.style.display = "none";
-    inventMainDiv.style.display = "flex";
+    if (e.target.classList.length == 2) {
+        if (e.target.classList[1] != "editTittle") {
+            mainPanel.style.display = "none";
+            inventMainDiv.style.display = "flex";
+        }
+    } else {
+        mainPanel.style.display = "none";
+        inventMainDiv.style.display = "flex";
+    }
+
 })
 
 const closeInventButt = document.querySelector("#closeInvent")
@@ -292,4 +307,25 @@ saveModInvent.addEventListener("click", e => {
     localStorage.removeItem('inv1');
     localStorage.setItem('inv1', JSON.stringify(lastInventary1));
     renderAllInfo(lastProducts, lastInventary1, "inventario")
+})
+
+//Cambiar tituloInventario
+const editTittleButt1 = document.querySelector("#editTittleButt1");
+
+editTittleButt1.addEventListener("click", e => {
+    e.preventDefault();
+    e.stopPropagation();
+    inputTittle1.value = "";
+    inputTittle1.focus();
+})
+
+inputTittle1.addEventListener("keypress", e => {
+    e.stopPropagation();
+    if (e.key === "Enter") {
+        e.preventDefault();
+        inputTittle1.blur();
+        localStorage.removeItem("inv1Tittle")
+        localStorage.setItem("inv1Tittle", JSON.stringify(inputTittle1.value))
+        document.querySelector("#inventName1").innerHTML = inputTittle1.value;
+    }
 })

@@ -61,7 +61,7 @@ body{
 
 .inventCard{
     border: 1px solid var(--gray);
-    padding: 5%;
+    padding: 3%;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -70,6 +70,31 @@ body{
 }
 .inventCard span{
     font-size: 4rem;
+}
+
+.tittleDiv{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.inCardTittle{
+    background-color: transparent;
+    border: 0px;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+}
+.inCardTittle:hover{
+    cursor: pointer;
+}
+#editTittleButt1, #editTittleButt2{
+    font-size: 2rem;
+}
+.editTittle:hover{
+    border: 1px solid var(--black);
+    box-shadow: 0px 0px 10px 2px var(--black);
 }
 
 .inventCard:hover, .catalButton:hover{
@@ -84,6 +109,7 @@ body{
     color: var(--black);
     border: 1px solid var(--black);
 }
+
 
 /* catalogoDiv */
 .catalMainDiv{
