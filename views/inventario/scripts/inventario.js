@@ -1,6 +1,8 @@
 import createProduct from "./createProduct.js";
 import llenarSelect from "./llenarSelect.js";
+import modProduct from "./modProduct.js";
 import newRowFunction from "./newRow.js";
+import renderAllInfo from "./renderAllInfo.js";
 import traerInfo from "./traerInfo.js";
 
 const catalButton = document.querySelector(".catalButton");
@@ -8,13 +10,11 @@ const mainPanel = document.querySelector(".mainPanel");
 const catalMainDiv = document.querySelector(".catalMainDiv");
 const modProdSelect = document.querySelector("#modProdSelect");
 
-let deplCatMain = false;
 catalButton.addEventListener("click", e => {
     e.preventDefault();
     e.stopPropagation();
     mainPanel.style.display = "none";
     catalMainDiv.style.display = "flex";
-    deplCatMain = true
 })
 
 // catalogo
@@ -25,7 +25,6 @@ closeCatalogButt.addEventListener("click", e => {
     e.stopPropagation();
     mainPanel.style.display = "flex";
     catalMainDiv.style.display = "none";
-    deplCatMain = false
 })
 
 //Renderizado de tabla
@@ -33,14 +32,7 @@ closeCatalogButt.addEventListener("click", e => {
 let lastProducts = localStorage.getItem("products")
 if (lastProducts) {
     lastProducts = JSON.parse(lastProducts);
-    lastProducts.forEach(element => {
-        newRowFunction(
-            element.id,
-            element.titulo,
-            element.desc,
-            element.imag
-        )
-    });
+    renderAllInfo(lastProducts)
     llenarSelect(lastProducts)
     traerInfo(lastProducts, Number(modProdSelect.value));
 } else {
@@ -113,10 +105,20 @@ creatButton.addEventListener("click", e => {
 })
 
 //Modificar elemento
-
 modProdSelect.addEventListener("change", e => {
     e.preventDefault();
     e.stopPropagation();
     traerInfo(lastProducts, Number(modProdSelect.value));
+})
+
+const saveMod = document.querySelector("#saveMod");
+saveMod.addEventListener("click", e => {
+    e.preventDefault();
+    e.stopPropagation();
+    lastProducts = modProduct(lastProducts, Number(modProdSelect.value));
+    localStorage.removeItem('products');
+    localStorage.setItem('products', JSON.stringify(lastProducts));
+    renderAllInfo(lastProducts);
+    llenarSelect(lastProducts);
 })
 
