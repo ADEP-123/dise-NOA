@@ -6,7 +6,3 @@ document.getElementById("desplegarModulos").addEventListener("click", deplegarMo
 document.getElementById("desplegarConfig").addEventListener("click", desplegarConfiguracion)
 document.getElementById("desplegarAyuda").addEventListener("click", desplegarAyuda)
 
-
-
-
-

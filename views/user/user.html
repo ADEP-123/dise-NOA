@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <title>Login</title>
+</head>
+<body>
+    <main class="main">
+
+        <section class="main__login"> 
+            <article class="login__title">
+                <h1>Bienvenido</h1>
+            </article>
+
+            <article class="login__inputs">
+                <input type="text" placeholder="Usuario">
+                <input type="password" placeholder="Contraseña">
+            </article>
+
+            <article class="login__button">
+                <button id="login">Login</button>
+            </article>
+
+            <article class="login__questions">
+                <a href="#">¿Perdiste tu contraseña?</a>
+                <a href="#">¿No tienes cuenta? Registrate</a>
+            </article>
+
+            <article class="login__return">
+                <span class="material-symbols-outlined">arrow_back</span>
+            </article>
+        </section>
+    </main>
+
+    <script>
+        document.getElementById("login").addEventListener("click", e =>{
+            window.location.href = '../inventario/inventario.html'
+        })
+    </script>
+</body>
+</html>
