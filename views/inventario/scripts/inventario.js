@@ -311,10 +311,11 @@ saveModInvent.addEventListener("click", e => {
 
 //Cambiar tituloInventario
 const editTittleButt1 = document.querySelector("#editTittleButt1");
-
+let oldname = "";
 editTittleButt1.addEventListener("click", e => {
     e.preventDefault();
     e.stopPropagation();
+    oldname = inputTittle1.value
     inputTittle1.value = "";
     inputTittle1.focus();
 })
@@ -323,9 +324,16 @@ inputTittle1.addEventListener("keypress", e => {
     e.stopPropagation();
     if (e.key === "Enter") {
         e.preventDefault();
-        inputTittle1.blur();
-        localStorage.removeItem("inv1Tittle")
-        localStorage.setItem("inv1Tittle", JSON.stringify(inputTittle1.value))
-        document.querySelector("#inventName1").innerHTML = inputTittle1.value;
+        if (inputTittle1.value == "" || inputTittle1.value == null) {
+            alert("El nombre de la bodega no puede ser vacio")
+            inputTittle1.value = oldname
+            inputTittle1.blur();
+        } else {
+            inputTittle1.blur();
+            localStorage.removeItem("inv1Tittle")
+            localStorage.setItem("inv1Tittle", JSON.stringify(inputTittle1.value))
+            document.querySelector("#inventName1").innerHTML = inputTittle1.value;
+        }
+
     }
 })
