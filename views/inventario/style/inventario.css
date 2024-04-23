@@ -357,8 +357,84 @@ body {
 }
 
 .help__content{
-    background-color: #fff;
     height: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 2vw;
+}
+
+.help__content > *{
+    padding: 2vw;
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+}
+
+.help__card__title{
+    text-align: center;
+    font-size: 1.5vw;
+}
+
+.help__card__contact{
+    background-color: hsla(197, 100%, 58%, 0.75);;
+}
+
+.card__content__contact{
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+    text-align: justify;
+}
+
+.card__content__contact p, li{
+    font-size: 1vw;
+}
+
+.card__content__contact h2{
+    text-align: center;
+}
+
+.card__content__contact span{
+    font-weight: bold;
+}
+
+.help__card__questions{
+    background-color: hsla(147, 61%, 47%, 0.75);
+}
+
+.content__questions__item{
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+}
+
+.card__content__questions ul{
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+    list-style: none;
+}
+
+.card__content__questions p{
+    text-align: justify;
+}
+
+.card__content__questions ol{
+    margin-left: 50px;
+}
+
+.help__card__update{
+    background-color: hsla(0, 100%, 55%, 0.75);
+}
+
+.content__update_item{
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+}
+
+.content__update_item p{
+    font-size: 1vw;
 }
 
 
