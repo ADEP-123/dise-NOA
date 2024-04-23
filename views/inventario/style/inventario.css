@@ -243,6 +243,29 @@ body {
     width: 300px;
 }
 
+.main__settings{
+    height: 70%;
+    display: none;
+    padding-top: 2vw;
+}
+
+.settings__content{
+    background-color: #fff;
+    height: 100%;
+}
+
+.main__help{
+    height: 70%;
+    display: none;
+    padding-top: 2vw;
+}
+
+.help__content{
+    background-color: #fff;
+    height: 100%;
+}
+
+
 
 /* catalogoDiv */
 .catalMainDiv {
@@ -255,7 +278,7 @@ body {
     background-color: var(--white);
     display: none;
     flex-direction: column;
-    padding: 2%;
+    padding: 2vw;
     justify-content: space-around;
 }
 

@@ -24,8 +24,8 @@
         </div>
         <div class="userInfo__buttons">
             <button id="desplegarModulos"><p>Modulos</p><span class="material-symbols-outlined">expand_more</span></button>
-            <button><p>Ajustes</p><span class="material-symbols-outlined">expand_more</span></button>
-            <button><p>Ayuda</p><span class="material-symbols-outlined">expand_more</span></button>
+            <button id="desplegarConfig"><p>Ajustes</p><span class="material-symbols-outlined">expand_more</span></button>
+            <button id="desplegarAyuda"><p>Ayuda</p><span class="material-symbols-outlined">expand_more</span></button>
             <button><p>Acerca de</p><span class="material-symbols-outlined">expand_more</span></button>
         </div>
     </div>
@@ -87,7 +87,19 @@
         </div>
     </div>
 
+    <div class="main__settings">
+        <div class="settings__content shadowBorder" >
+            config
+        </div>
+    </div>
 
+    <div class="main__help">
+        <div class="help__content shadowBorder">
+            help
+        </div>
+    </div>
+
+    <!--INVENTARIOS Y CATALOGO-->
     <div class="catalMainDiv">
         <div class="panelDiv shadowBorder">
             <a href="">
@@ -100,9 +112,7 @@
         </div>
 
         <div class="catalDiv shadowBorder">
-
             <div class="catalInfo">
-
                 <div class="searchProductDiv">
                     <h2>Producto</h2>
                     <select id="searcProdSelect"></select>
@@ -113,7 +123,6 @@
                         reply
                     </span>
                 </div>
-
                 <table class="catal" id="catal">
                     <tr>
                         <th>ID</th>
@@ -123,15 +132,11 @@
                         <th>Proveedor</th>
                     </tr>
                 </table>
-
             </div>
 
             <div class="modOrNewObjectMain">
-
                 <div class="modorNewObjectButt">←</div>
-
                 <div class="modOrNewObject">
-
                     <div class="creatObject" id="createZone">
                         <h2>Crear Producto</h2>
                         <div class="creatDuo">
@@ -150,7 +155,6 @@
                             <p>Crear:</p>
                             <button>+</button>
                         </div>
-
                     </div>
 
                     <div class="modObject" id="modObject">
@@ -181,15 +185,10 @@
                             <p>Eliminar:</p>
                             <button id="deltButt">x</button>
                         </div>
-
                     </div>
-
                 </div>
-
             </div>
-
         </div>
-
     </div>
 
     <div class="invent1MainDiv" id="invent1MainDiv">
@@ -202,11 +201,8 @@
             <h1 id="inventName1">Inventario 1</h1>
             <button id="closeInvent">X</button>
         </div>
-
         <div class="catalDiv shadowBorder">
-
             <div class="catalInfo">
-
                 <div class="searchProductDiv">
                     <h2>Producto</h2>
                     <select id="searcProdSelect"></select>
@@ -217,7 +213,6 @@
                         reply
                     </span>
                 </div>
-
                 <table class="catal" id="invent">
                     <tr>
                         <th>ID</th>
@@ -227,15 +222,11 @@
                         <th>Cantidad</th>
                     </tr>
                 </table>
-
             </div>
 
             <div class="modOrNewObjectMain">
-
                 <div class="modorNewObjectButt">←</div>
-
                 <div class="modOrNewObject">
-
                     <div class="creatObject" id="addProduct">
                         <h2>Agregar Producto</h2>
                         <div class="creatDuo">
@@ -268,13 +259,9 @@
                                 save
                             </span>
                         </div>
-
                     </div>
-
                 </div>
-
             </div>
-
         </div>
     </div>
 
@@ -282,8 +269,10 @@
 
     <!--USER PAGE-->
     <script src="../user/scripts/user.js" type="module"></script>
-    <!--MODULES-->
-    <script src="../user/scripts/modules/desplegarModulos.js"></script>
+    <!--MODULES FOR USER PAGE-->
+    <script src="../user/scripts/modules/modulos.js" type="module"></script>
+    <script src="../user/scripts/modules/configuracion.js" type="module"></script>
+    <script src="../user/scripts/modules/ayuda.js" type="module"></script>
 </body>
 
 </html>

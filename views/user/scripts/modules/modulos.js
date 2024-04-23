@@ -1,7 +1,8 @@
-export const deplegarModulos = () => {
+export const deplegarModulos = (e) => {
     document.querySelector(".main__modulos").style.display = "block"
+    document.querySelector(".main__settings").style.display = "none"
+    document.querySelector(".main__help").style.display = "none"
 }
-
 //MANIPULACION DEL DOM
 let modulos = document.querySelector(".modulSel")
 modulos.addEventListener("click", event => {
