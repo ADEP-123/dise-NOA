@@ -1,0 +1,321 @@
+:root {
+    --white: #ffffff;
+    --gray:#e4e4e4;
+    --black: rgb(0, 0, 0);
+    --paleOrange: rgb(255, 221, 127)
+}
+*{
+    box-sizing: border-box;
+    margin: 0px;
+}
+body{
+    height: 100vh;
+    width: 100vw;
+    padding: 2%;
+    overflow: hidden;
+}
+
+.userInfo{
+    height: 25%;
+}
+.modulSel{
+    height: 20%;
+}
+
+.shadowBorder{
+    border: 1px solid var(--gray);
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px 0px var(--black);
+}
+
+/* MainPanel */
+.mainPanel{
+    height: 55%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Div del inventario */
+.inventDiv{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    color: black;
+}
+
+.iventTittle{
+    font-size: 3rem;
+}
+
+.inventCardsDiv{
+    display:  flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.inventCard{
+    border: 1px solid var(--gray);
+    padding: 3%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    box-shadow: 5px 5px 10px 0px var(--gray);
+}
+.inventCard span{
+    font-size: 4rem;
+}
+
+.tittleDiv{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.inCardTittle{
+    background-color: transparent;
+    border: 0px;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+}
+.inCardTittle:hover{
+    cursor: pointer;
+}
+#editTittleButt1, #editTittleButt2{
+    font-size: 2rem;
+}
+.editTittle:hover{
+    border: 1px solid var(--black);
+    box-shadow: 0px 0px 10px 2px var(--black);
+}
+
+.inventCard:hover, .catalButton:hover{
+    background-color: var(--paleOrange);
+    cursor: pointer;
+}
+
+.catalButton{
+    padding: 10px;
+    border-radius: 10px;
+    background-color: var(--gray);
+    color: var(--black);
+    border: 1px solid var(--black);
+}
+
+
+/* catalogoDiv */
+.catalMainDiv{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    z-index: 1;
+    background-color: var(--white);
+    display: none;
+    flex-direction: column;
+    padding: 2%;
+    justify-content: space-around;
+}
+.panelDiv{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1%;
+    height: 10%;
+}
+
+.panelDiv span{
+    font-size: 3rem;
+    color: var(--black);
+}
+
+.panelDiv button{
+    font-size: 1.5rem;
+    background-color: var(--gray);
+    color: var(--black);
+    border: 1px solid var(--black);
+}
+
+.panelDiv button:hover{
+    background-color: var(--paleOrange);
+    cursor: pointer;
+}
+
+/* Catalogo */
+.catalDiv{
+    height: 80%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    padding: 1%;
+}
+
+.catalInfo{
+    width: 98%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2%;
+    overflow-y: auto;
+}
+
+.searchProductDiv{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 1%;
+}
+
+.searchProductDiv select{
+    width: 80%;
+}
+
+.searchProductDiv span{
+    font-size: 2rem;
+}
+
+.searchProductDiv span:hover{
+    color: var(--paleOrange);
+    cursor: pointer;
+}
+.catal{
+    overflow-y: auto;
+}
+
+.catal,.catal th{
+    border: 2px solid black;
+    border-collapse:collapse ;
+}
+
+.catal tr, .catal td{
+    border: 1px solid black;
+    text-align: center;
+}
+
+.catal img{
+    height: 80px;
+}
+
+.modOrNewObjectMain{
+    width: 2%;
+    display: flex;
+    flex-direction: row;
+    border: 1px solid var(--black);
+    border-radius: 10px;
+}
+.modorNewObjectButt{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    border: 1px solid var(--black);
+}
+.modorNewObjectButt:hover{
+    background-color: var(--paleOrange);
+    cursor: pointer;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius:10px ;
+}
+
+.modOrNewObject{
+    display: none;
+    width: 90%;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.modOrNewObject button{
+    font-size: 1.5rem;
+    background-color: var(--gray);
+    color: var(--black);
+    border: 1px solid var(--black);
+    border-radius: 100%;
+}
+
+.modOrNewObject button:hover{
+    background-color: var(--paleOrange);
+    cursor: pointer;
+}
+
+.creatObject, .modObject{
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1%;
+}
+
+.creatDuo, .modDuo{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    flex-wrap: wrap;
+}
+.buttDuodiv{
+    justify-content: center;
+    align-items: center;
+    gap: 5%;
+}
+
+#saveMod:hover, #saveModInvent:hover{
+    color: var(--paleOrange);
+    cursor: pointer;
+}
+
+.catalMainDiv, .invent1MainDiv{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    z-index: 1;
+    background-color: var(--white);
+    display: none;
+    flex-direction: column;
+    padding: 2%;
+    justify-content: space-around;
+}
+.panelDiv{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1%;
+    height: 10%;
+}
+
+.panelDiv span{
+    font-size: 3rem;
+    color: var(--black);
+}
+
+.panelDiv button{
+    font-size: 1.5rem;
+    background-color: var(--gray);
+    color: var(--black);
+    border: 1px solid var(--black);
+}
+
+.panelDiv button:hover{
+    background-color: var(--paleOrange);
+    cursor: pointer;
+}
+
