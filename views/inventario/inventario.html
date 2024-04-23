@@ -12,42 +12,81 @@
 
 <body>
     <div class="userInfo shadowBorder">
-
-    </div>
-    <div class="modulSel">
-
-    </div>
-    <div class="mainPanel shadowBorder">
-        <div class="inventDiv">
-            <h1 class="iventTittle">Tus Inventarios</h1>
-            <div class="inventCardsDiv">
-                <div class="inventCard" id="invent1Butt">
-                    <span class="material-symbols-outlined">
-                        inventory
-                    </span>
-                    <div class="tittleDiv">
-                        <input type="text" value="Inventario 1" class="inCardTittle" id="inputTittle1">
-                        <span class="material-symbols-outlined editTittle" id="editTittleButt1">
-                            edit
-                        </span>
-                    </div>
-
-                </div>
-                <div class="inventCard">
-                    <span class="material-symbols-outlined">
-                        inventory
-                    </span>
-                    <div class="tittleDiv">
-                        <input type="text" value="Inventario 2" class="inCardTittle">
-                        <span class="material-symbols-outlined editTittle" id="editTittleButt2">
-                            edit
-                        </span>
-                    </div>
-                </div>
+        <div class="userInfo__profile">
+            <div class="profile__img">
+                <img src="../user/storage/img_Perfil.png" alt="img_perfil">
             </div>
-            <button class="catalButton">Catalogo</button>
+            <div class="profile__info">
+                <h4>Tipo de cuenta</h4>
+                <h2>Emily Julieth Nieves Badillo</h2>
+                <h3>Otro texto llamativo</h3>
+            </div>
+        </div>
+        <div class="userInfo__buttons">
+            <button id="desplegarModulos"><p>Modulos</p><span class="material-symbols-outlined">expand_more</span></button>
+            <button><p>Ajustes</p><span class="material-symbols-outlined">expand_more</span></button>
+            <button><p>Ayuda</p><span class="material-symbols-outlined">expand_more</span></button>
+            <button><p>Acerca de</p><span class="material-symbols-outlined">expand_more</span></button>
         </div>
     </div>
+    <div class="main__modulos">
+        <div class="modulSel">
+            <div value="1">
+                <h2>Inventario</h2>
+                <span class="material-symbols-outlined">inventory_2</span>
+            </div>
+            <div value="2">
+                <h2>Facturacion</h2>
+                <span class="material-symbols-outlined">receipt</span>
+            </div>
+            <div value="3">
+                <h2>Modulo 3</h2>
+                <span class="material-symbols-outlined">receipt</span>
+            </div>
+        </div>
+        <div class="mainPanel shadowBorder">
+            <div class="inventDiv">
+                <h1 class="iventTittle">Tus Inventarios</h1>
+                <div class="inventCardsDiv">
+                    <div class="inventCard" id="invent1Butt">
+                        <span class="material-symbols-outlined">
+                            inventory
+                        </span>
+                        <div class="tittleDiv">
+                            <input type="text" value="Inventario 1" class="inCardTittle" id="inputTittle1">
+                            <span class="material-symbols-outlined editTittle" id="editTittleButt1">
+                                edit
+                            </span>
+                        </div>
+    
+                    </div>
+                    <div class="inventCard">
+                        <span class="material-symbols-outlined">
+                            inventory
+                        </span>
+                        <div class="tittleDiv">
+                            <input type="text" value="Inventario 2" class="inCardTittle">
+                            <span class="material-symbols-outlined editTittle" id="editTittleButt2">
+                                edit
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <button class="catalButton">Catalogo</button>
+            </div>
+            <div class="billDiv">
+                <h1 class="iventTittle">Facturacion</h1>
+                <h3>Modulo en construccion</h3>
+                <img src="../user/storage/giphy.gif" alt="">
+            </div>
+            <div class="module3Div">
+                <h1 class="iventTittle">Modulo 3</h1>
+                <h3>Modulo en construccion</h3>
+                <img src="../user/storage/giphy.gif" alt="">
+            </div>
+        </div>
+    </div>
+
 
     <div class="catalMainDiv">
         <div class="panelDiv shadowBorder">
@@ -240,6 +279,11 @@
     </div>
 
     <script src="scripts/inventario.js" type="module"></script>
+
+    <!--USER PAGE-->
+    <script src="../user/scripts/user.js" type="module"></script>
+    <!--MODULES-->
+    <script src="../user/scripts/modules/desplegarModulos.js"></script>
 </body>
 
 </html>

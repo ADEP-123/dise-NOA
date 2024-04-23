@@ -1,65 +1,159 @@
 :root {
     --white: #ffffff;
-    --gray:#e4e4e4;
+    --gray: #e4e4e4;
     --black: rgb(0, 0, 0);
     --paleOrange: rgb(255, 221, 127)
 }
-*{
+
+* {
     box-sizing: border-box;
     margin: 0px;
+    padding: 0;
+    font-family: sans-serif;
 }
-body{
+
+body {
     height: 100vh;
     width: 100vw;
-    padding: 2%;
+    padding: 2% 8vw;
     overflow: hidden;
+    background-color: rgb(228, 228, 228);
 }
 
-.userInfo{
-    height: 25%;
-}
-.modulSel{
-    height: 20%;
-}
-
-.shadowBorder{
-    border: 1px solid var(--gray);
-    border-radius: 10px;
-    box-shadow: 5px 5px 10px 0px var(--black);
+.userInfo {
+    height: 30%;
+    background-color: white;
+    padding: 2vw 2vw 1.5vw;
 }
 
-/* MainPanel */
-.mainPanel{
-    height: 55%;
+.userInfo__profile {
+    height: 70%;
     display: flex;
-    flex-direction: column;
     align-items: center;
 }
 
+.profile__img {
+    width: 10%;
+}
+
+.profile__img img {
+    width: 100%;
+    border-radius: 100%;
+}
+
+.profile__info {
+    padding-left: 2vw;
+}
+
+.profile__info h4 {
+    background-color: rgba(238, 130, 238, 0.2);
+    color: violet;
+    display: inline-block;
+    border-radius: 100px;
+    padding: 5px;
+    margin: 0;
+}
+
+.profile__info h2 {
+    font-size: 3em;
+    padding: .4vw 0;
+}
+
+.userInfo__buttons {
+    height: 30%;
+    display: flex;
+    align-items: end;
+    gap: 1vw;
+}
+
+.userInfo__buttons>* {
+    border: 0;
+    background-color: white;
+    outline: 2px solid black;
+    border-radius: 100px;
+    padding: 10px 25px;
+    font-size: .8vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    font-weight: bold;
+}
+
+.userInfo__buttons span {
+    margin: -10px;
+}
+
+.main__modulos{
+    height: 70%;
+    display: none;
+}
+
+.modulSel {
+    height: 30%;
+    display: flex;
+    justify-content: space-around;
+    padding: 1vw 0;
+}
+
+.modulSel>* {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    background-color: hsla(147, 61%, 47%, 0.75);
+    box-shadow: 10px 10px 9px 0px rgb(194, 194, 194);
+    user-select: none; 
+}
+
+.modulSel div:first-child {
+    background-color: hsla(197, 100%, 58%, 0.75);
+}
+
+.modulSel div:last-child {
+    background-color: hsla(0, 100%, 55%, 0.75);
+}
+
+.shadowBorder {
+    border-radius: 30px;
+    box-shadow: 10px 10px 9px 0px rgb(194, 194, 194);
+}
+
+/* MainPanel */
+.mainPanel {
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+}
+
 /* Div del inventario */
-.inventDiv{
+.inventDiv {
     width: 100%;
     height: 100%;
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
     color: black;
 }
 
-.iventTittle{
+.iventTittle {
     font-size: 3rem;
 }
 
-.inventCardsDiv{
-    display:  flex;
+.inventCardsDiv {
+    display: flex;
     flex-direction: row;
     text-align: center;
     justify-content: space-around;
     width: 100%;
 }
 
-.inventCard{
+.inventCard {
     border: 1px solid var(--gray);
     padding: 3%;
     border-radius: 10px;
@@ -68,41 +162,47 @@ body{
     justify-content: space-around;
     box-shadow: 5px 5px 10px 0px var(--gray);
 }
-.inventCard span{
+
+.inventCard span {
     font-size: 4rem;
 }
 
-.tittleDiv{
+.tittleDiv {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     width: 100%;
 }
 
-.inCardTittle{
+.inCardTittle {
     background-color: transparent;
     border: 0px;
     text-align: center;
     font-size: 2rem;
     font-weight: bold;
 }
-.inCardTittle:hover{
+
+.inCardTittle:hover {
     cursor: pointer;
 }
-#editTittleButt1, #editTittleButt2{
+
+#editTittleButt1,
+#editTittleButt2 {
     font-size: 2rem;
 }
-.editTittle:hover{
+
+.editTittle:hover {
     border: 1px solid var(--black);
     box-shadow: 0px 0px 10px 2px var(--black);
 }
 
-.inventCard:hover, .catalButton:hover{
+.inventCard:hover,
+.catalButton:hover {
     background-color: var(--paleOrange);
     cursor: pointer;
 }
 
-.catalButton{
+.catalButton {
     padding: 10px;
     border-radius: 10px;
     background-color: var(--gray);
@@ -110,9 +210,42 @@ body{
     border: 1px solid var(--black);
 }
 
+.moduloSeleccionado{
+    outline: 2px solid black;
+}
+
+.billDiv {
+    width: 100%;
+    height: 100%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    color: black;
+    padding: 50px;
+}
+
+.billDiv img{
+    width: 300px;
+}
+.module3Div {
+    width: 100%;
+    height: 100%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    color: black;
+    padding: 50px;
+}
+
+.module3Div img{
+    width: 300px;
+}
+
 
 /* catalogoDiv */
-.catalMainDiv{
+.catalMainDiv {
     height: 100%;
     width: 100%;
     position: absolute;
@@ -125,7 +258,8 @@ body{
     padding: 2%;
     justify-content: space-around;
 }
-.panelDiv{
+
+.panelDiv {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -134,25 +268,25 @@ body{
     height: 10%;
 }
 
-.panelDiv span{
+.panelDiv span {
     font-size: 3rem;
     color: var(--black);
 }
 
-.panelDiv button{
+.panelDiv button {
     font-size: 1.5rem;
     background-color: var(--gray);
     color: var(--black);
     border: 1px solid var(--black);
 }
 
-.panelDiv button:hover{
+.panelDiv button:hover {
     background-color: var(--paleOrange);
     cursor: pointer;
 }
 
 /* Catalogo */
-.catalDiv{
+.catalDiv {
     height: 80%;
     width: 100%;
     display: flex;
@@ -160,7 +294,7 @@ body{
     padding: 1%;
 }
 
-.catalInfo{
+.catalInfo {
     width: 98%;
     height: 100%;
     display: flex;
@@ -169,51 +303,55 @@ body{
     overflow-y: auto;
 }
 
-.searchProductDiv{
+.searchProductDiv {
     display: flex;
     flex-direction: row;
     width: 100%;
     gap: 1%;
 }
 
-.searchProductDiv select{
+.searchProductDiv select {
     width: 80%;
 }
 
-.searchProductDiv span{
+.searchProductDiv span {
     font-size: 2rem;
 }
 
-.searchProductDiv span:hover{
+.searchProductDiv span:hover {
     color: var(--paleOrange);
     cursor: pointer;
 }
-.catal{
+
+.catal {
     overflow-y: auto;
 }
 
-.catal,.catal th{
+.catal,
+.catal th {
     border: 2px solid black;
-    border-collapse:collapse ;
+    border-collapse: collapse;
 }
 
-.catal tr, .catal td{
+.catal tr,
+.catal td {
     border: 1px solid black;
     text-align: center;
 }
 
-.catal img{
+.catal img {
     height: 80px;
 }
 
-.modOrNewObjectMain{
+.modOrNewObjectMain {
     width: 2%;
     display: flex;
     flex-direction: row;
     border: 1px solid var(--black);
     border-radius: 10px;
 }
-.modorNewObjectButt{
+
+.modorNewObjectButt {
     width: 100%;
     height: 100%;
     display: flex;
@@ -223,14 +361,15 @@ body{
     font-size: 2rem;
     border: 1px solid var(--black);
 }
-.modorNewObjectButt:hover{
+
+.modorNewObjectButt:hover {
     background-color: var(--paleOrange);
     cursor: pointer;
     border-top-left-radius: 10px;
-    border-bottom-left-radius:10px ;
+    border-bottom-left-radius: 10px;
 }
 
-.modOrNewObject{
+.modOrNewObject {
     display: none;
     width: 90%;
     height: 100%;
@@ -240,7 +379,7 @@ body{
     text-align: center;
 }
 
-.modOrNewObject button{
+.modOrNewObject button {
     font-size: 1.5rem;
     background-color: var(--gray);
     color: var(--black);
@@ -248,12 +387,13 @@ body{
     border-radius: 100%;
 }
 
-.modOrNewObject button:hover{
+.modOrNewObject button:hover {
     background-color: var(--paleOrange);
     cursor: pointer;
 }
 
-.creatObject, .modObject{
+.creatObject,
+.modObject {
     height: 50%;
     display: flex;
     flex-direction: column;
@@ -262,25 +402,29 @@ body{
     gap: 1%;
 }
 
-.creatDuo, .modDuo{
+.creatDuo,
+.modDuo {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
     flex-wrap: wrap;
 }
-.buttDuodiv{
+
+.buttDuodiv {
     justify-content: center;
     align-items: center;
     gap: 5%;
 }
 
-#saveMod:hover, #saveModInvent:hover{
+#saveMod:hover,
+#saveModInvent:hover {
     color: var(--paleOrange);
     cursor: pointer;
 }
 
-.catalMainDiv, .invent1MainDiv{
+.catalMainDiv,
+.invent1MainDiv {
     height: 100%;
     width: 100%;
     position: absolute;
@@ -293,7 +437,8 @@ body{
     padding: 2%;
     justify-content: space-around;
 }
-.panelDiv{
+
+.panelDiv {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -302,20 +447,19 @@ body{
     height: 10%;
 }
 
-.panelDiv span{
+.panelDiv span {
     font-size: 3rem;
     color: var(--black);
 }
 
-.panelDiv button{
+.panelDiv button {
     font-size: 1.5rem;
     background-color: var(--gray);
     color: var(--black);
     border: 1px solid var(--black);
 }
 
-.panelDiv button:hover{
+.panelDiv button:hover {
     background-color: var(--paleOrange);
     cursor: pointer;
 }
-
