@@ -1,0 +1,247 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+h1,
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    text-align: center;
+}
+
+nav {
+    width: 100%;
+    height: 10vh;
+    background-color: #63caa7;
+    display: flex;
+    flex-direction: row;
+}
+nav img {
+    width: 10%;
+}
+ul {
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    justify-content: space-around;
+    align-items: center;
+}
+ul button,
+.info button {
+    border-radius: 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 1rem;
+    background-color: #ffc172;
+    border: 1px solid #ffc172;
+    -webkit-box-shadow: 1px 12px 5px -5px rgba(0, 0, 0, 0.48);
+    -moz-box-shadow: 1px 12px 5px -5px rgba(0, 0, 0, 0.48);
+    box-shadow: 1px 12px 5px -5px rgba(0, 0, 0, 0.48);
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+#home {
+    width: 100%;
+    height: 85vh;
+    background-color: #f4f1ec;
+    display: flex;
+    flex-direction: row;
+    background-image: url('./img/home.webp');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#home .info {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.info button {
+    width: 30%;
+}
+
+#home .info p,
+#benefits .info p {
+    text-align: center;
+    padding: 2rem;
+}
+
+#benefits {
+    width: 100%;
+    height: 75vh;
+    background-color: blanchedalmond;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+#benefits h2 {
+    margin-bottom: 3rem;
+}
+#benefits .img {
+    width: 50%;
+    height: 75vh;
+    background-image: url('./img/benefits.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#benefits .info {
+    width: 50%;
+    height: 75vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#benefits .info u {
+    font-weight: bold;
+}
+
+#modules {
+    width: 100%;
+    height: 50vh;
+    background-color: #f4f1ec;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#modules .container-cards {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.card {
+    width: 35%;
+    height: 30vh;
+    margin: 0 0.5rem;
+    border-radius: 1rem;
+    background-color: #f4f9ff;
+    box-shadow: 0px 2px 6px -2px rgba(0, 0, 0, 0.05), 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.card .icon {
+    border-radius: 5rem;
+    padding: 1rem;
+    background-color: #63caa7;
+    margin: 0 1rem;
+}
+
+.card .text-info {
+    width: 75%;
+    padding: 1rem;
+}
+
+#why-us {
+    background-color: #63caa7;
+    width: 100%;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#why-us .info {
+    height: 60vh;
+    width: 100%;
+    text-align: center;
+}
+
+#why-us hr {
+    width: 50%;
+    color: black;
+}
+
+#why-us div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+}
+
+#why-us div span {
+    font-weight: bold;
+    margin: 1rem 0;
+}
+
+#contact {
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    background-color: #f4f1ec;
+}
+
+.container-form {
+    width: 60%;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container-form form {
+    display: flex;
+    height: 65vh;
+    padding: 3rem;
+    border-radius: 3rem;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #ffc172;
+    box-shadow: 0px 2px 6px -2px rgba(0, 0, 0, 0.05), 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.container-form form label {
+    margin: 1rem 0;
+}
+.container-form form button {
+    width: 20%;
+    padding: 1rem;
+    background-color: #63caa7;
+    border: 1px solid #63caa7;
+    border-radius: 1rem;
+    box-shadow: 0px 2px 6px -2px rgba(0, 0, 0, 0.05), 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+#contact .img {
+    width: 40%;
+    height: 80vh;
+    background-image: url('./img/contact.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+input {
+    border-radius: 1rem;
+    padding: 0.6rem;
+    border: 1px solid grey;
+    box-shadow: 0px 2px 6px -2px rgba(0, 0, 0, 0.05), 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
