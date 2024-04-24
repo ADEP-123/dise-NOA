@@ -6,7 +6,7 @@
 }
 
 body{
-    background-color: rgb(228, 228, 228);
+    background-color: #FFE3B3;
 }
 
 .main{
@@ -32,6 +32,7 @@ body{
 
 .login__title{
     font-size: 50px;
+    color: black;
 }
 
 .login__inputs{
@@ -63,7 +64,7 @@ body{
     border-radius: 5px;
     border: 0;
     font-size: 20px;
-    background-color: rgba(3, 182, 253, 0.966);
+    background-color: #63CAA7;
 }
 
 .login__button button:hover{

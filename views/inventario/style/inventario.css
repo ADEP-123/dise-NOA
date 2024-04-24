@@ -27,7 +27,11 @@ body {
     width: 100vw;
     padding: 2% 8vw;
     overflow: hidden;
-    background-color: rgb(228, 228, 228);
+    background-color: #FFE3B3;
+}
+
+h1, h2{
+    font-family: 'Montserrat', sans-serif;
 }
 
 .userInfo {
@@ -56,8 +60,8 @@ body {
 }
 
 .profile__info h4 {
-    background-color: rgba(238, 130, 238, 0.2);
-    color: violet;
+    background-color: #267abe44;
+    color: #267abece;
     display: inline-block;
     border-radius: 100px;
     padding: 5px;
@@ -92,13 +96,18 @@ body {
     justify-content: center;
     gap: 15px;
     font-weight: bold;
+    transition: .2s;
+}
+
+.userInfo__buttons>*:hover{
+    background-color: rgba(128, 128, 128, 0.24);
 }
 
 .userInfo__buttons span {
     margin: -10px;
 }
 
-.main__modulos{
+.main__modulos {
     height: 70%;
     display: none;
 }
@@ -110,29 +119,20 @@ body {
     padding: 1vw 0;
 }
 
-.modulSel>* {
+.modulSel > * {
     width: 30%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     border-radius: 30px;
-    background-color: hsla(147, 61%, 47%, 0.75);
-    box-shadow: 10px 10px 9px 0px rgb(194, 194, 194);
-    user-select: none; 
-}
-
-.modulSel div:first-child {
-    background-color: hsla(197, 100%, 58%, 0.75);
-}
-
-.modulSel div:last-child {
-    background-color: hsla(0, 100%, 55%, 0.75);
+    background-color: #63CAA7;
+    user-select: none;
+    transition: .2s;
 }
 
 .shadowBorder {
     border-radius: 30px;
-    box-shadow: 10px 10px 9px 0px rgb(194, 194, 194);
 }
 
 /* MainPanel */
@@ -224,8 +224,8 @@ body {
     border: 1px solid var(--Orange);
 }
 
-.moduloSeleccionado{
-    outline: 2px solid black;
+.moduloSeleccionado {
+    background-color: #2679BE;
 }
 
 .billDiv {
@@ -239,9 +239,10 @@ body {
     padding: 50px;
 }
 
-.billDiv img{
+.billDiv img {
     width: 300px;
 }
+
 .module3Div {
     width: 100%;
     height: 100%;
@@ -253,17 +254,17 @@ body {
     padding: 50px;
 }
 
-.module3Div img{
+.module3Div img {
     width: 300px;
 }
 
-.main__settings{
+.main__settings {
     height: 70%;
     display: none;
     padding-top: 2vw;
 }
 
-.settings__content{
+.settings__content {
     background-color: #fff;
     height: 100%;
     padding: 2vw 2vw;
@@ -272,50 +273,51 @@ body {
     justify-content: center;
 }
 
-.settings__content h1{
+.settings__content h1 {
     text-align: center;
     font-size: 3vw;
 }
 
-.settings__container{
+.settings__container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows:1fr;
+    grid-template-rows: 1fr;
     height: 100%;
 }
 
-.settings__container h2{
+.settings__container h2 {
     font-size: 2em;
     text-align: center;
 }
 
-.settings__content__info{
+.settings__content__info {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-.settings__content__info p{
+.settings__content__info p {
     font-size: 1.5vw;
     font-weight: bold;
     padding-left: 2vw;
 }
 
-.settings__content__info span{
+.settings__content__info span {
     font-size: 1.3vw;
     font-weight: normal;
 }
 
-.info__modulosAdquiridos ul{
+.info__modulosAdquiridos ul {
     margin-left: 3vw;
     font-size: 1.3vw;
 }
-.info__modulosAdquiridos ul li{
+
+.info__modulosAdquiridos ul li {
     margin-top: 10px;
     margin-left: 2vw;
 }
 
-.settings__content__password{
+.settings__content__password {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -323,24 +325,24 @@ body {
     text-align: center;
 }
 
-.settings__content__password > div{
+.settings__content__password>div {
     display: flex;
     flex-direction: column;
     width: 80%;
 }
 
-.settings__content__password label{
+.settings__content__password label {
     font-size: 1.3vw;
 }
 
-.settings__content__password input{
+.settings__content__password input {
     font-size: 1.5vw;
     border-radius: 100px;
     padding-left: 10px;
     width: 100%;
 }
 
-.settings__content__password button{
+.settings__content__password button {
     border: 0;
     width: 50%;
     background-color: white;
@@ -356,94 +358,85 @@ body {
     align-self: center;
 }
 
-
-
-
-
-.main__help{
+.main__help {
     height: 70%;
     display: none;
     padding-top: 2vw;
 }
 
-.help__content{
+.help__content {
     height: 100%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 2vw;
 }
 
-.help__content > *{
+.help__content>* {
     padding: 2vw;
     display: flex;
     flex-direction: column;
     gap: 1vw;
+    background-color: #63CAA7;
+    transition: .2s;
+}
+.help__content>*:hover {
+    background-color: #2679BE;
 }
 
-.help__card__title{
+.help__card__title {
     text-align: center;
     font-size: 1.5vw;
 }
 
-.help__card__contact{
-    background-color: hsla(197, 100%, 58%, 0.75);;
-}
-
-.card__content__contact{
+.card__content__contact {
     display: flex;
     flex-direction: column;
     gap: 1vw;
     text-align: justify;
 }
 
-.card__content__contact p, li{
+.card__content__contact p,
+li {
     font-size: 1vw;
 }
 
-.card__content__contact h2{
+.card__content__contact h2 {
     text-align: center;
 }
 
-.card__content__contact span{
+.card__content__contact span {
     font-weight: bold;
 }
 
-.help__card__questions{
-    background-color: hsla(147, 61%, 47%, 0.75);
-}
-
-.content__questions__item{
+.content__questions__item {
     display: flex;
     flex-direction: column;
     gap: 1vw;
 }
 
-.card__content__questions ul{
+.card__content__questions ul {
     display: flex;
     flex-direction: column;
     gap: 1vw;
     list-style: none;
 }
 
-.card__content__questions p{
+.card__content__questions p {
     text-align: justify;
 }
 
-.card__content__questions ol{
+.card__content__questions ol {
     margin-left: 50px;
 }
 
-.help__card__update{
-    background-color: hsla(0, 100%, 55%, 0.75);
-}
-
-.content__update_item{
+.content__update_item {
     display: flex;
     flex-direction: column;
     gap: 1vw;
+    text-align: justify;
 }
 
-.content__update_item p{
+.content__update_item p {
     font-size: 1vw;
 }
 
