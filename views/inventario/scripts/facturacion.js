@@ -11,6 +11,8 @@ let lastInventary1 = JSON.parse(localStorage.getItem("inv1"))
 let invent1Tittle = JSON.parse(localStorage.getItem("inv1Tittle"))
 let lastCatalog = JSON.parse(localStorage.getItem("products"))
 const itemsFactTable = newFacturaMainDiv.querySelector("#itemsFactTab")
+let factura = { items: [] };
+let lastListFacturas = localStorage.getItem("listFact") ? JSON.parse(localStorage.getItem("listFact")) : [];
 
 
 
@@ -34,7 +36,7 @@ newFactButton.addEventListener("click", (e) => {
     });
     selectItems.innerHTML = newItemsOptions
     cargarCantOptions()
-
+    console.log(lastListFacturas);
 })
 
 //Evento para cerrar el panel de nueva factura
@@ -62,9 +64,10 @@ newFacturaForm.addEventListener("submit", (e) => {
             return
         } else {
             formObject[key] = value
+            factura[key] = value
         }
     })
-    console.log(formObject);
+    console.log(formObject, factura);
 })
 
 //Evento para cargar las opciones de cantidad del item segun lo que hay en el inventario
@@ -95,9 +98,35 @@ selectItemForm.addEventListener("submit", (e) => {
     e.stopPropagation();
     const formData = new FormData(selectItemForm);
     const formObject = {};
+    let emptyValue = false
     formData.forEach((value, key) => {
+        if (value == "") {
+            alert("el precio unitario es obligatorio")
+            emptyValue = true
+        }
         formObject[key] = value
     })
+    if (emptyValue) {
+        return;
+    }
+    let isOkcant = false
+    factura.items.forEach(element => {
+        if (element.idItem == formObject.item) {
+            const newCantidad = element.cantidad + Number(formObject.cantidad);
+            for (let i = 0; i < lastInventary1.length; i++) {
+                if (lastInventary1[i].idCatal == Number(formObject.item)) {
+                    if (lastInventary1[i].cantidad < newCantidad) {
+                        alert("Imposible insertar la cantidad la nueva cantidad superaria a la disponible en el inventario")
+                        isOkcant = true
+                    }
+                }
+            }
+        }
+    });
+    if (isOkcant == true) {
+        return
+    }
+
     formObject.titulo = lastCatalog[Number(formObject.item)].titulo;
     formObject.imagen = lastCatalog[Number(formObject.item)].imag;
     const nuevaFila = document.createElement("tr");
@@ -106,8 +135,25 @@ selectItemForm.addEventListener("submit", (e) => {
     <td>${formObject.titulo}</td>
     <td><img src="${formObject.imagen}"></td>
     <td>${formObject.cantidad}</td>
+    <td>$${formObject.precUnit}</td>
     <td><button class="deleteItem" id="delBut${formObject.item}">x</button></td>
     `;
     itemsFactTable.insertAdjacentElement("beforeend", nuevaFila)
-    console.log({ formObject, lastCatalog });
+
+    //Setear los valores del item en la factura
+    agregarItemAFactura(formObject.item, formObject.titulo, Number(formObject.cantidad), formObject.precUnit)
 })
+
+function agregarItemAFactura(idItem, titulo, cantidad, precUnit) {
+    let exist = false
+    factura.items.forEach(element => {
+        if (element.idItem == idItem) {
+            element.cantidad += Number(cantidad)
+            exist = true
+        }
+    });
+    if (!exist) {
+        const item = { idItem, titulo, cantidad, precUnit }
+        factura.items.push(item)
+    }
+}
