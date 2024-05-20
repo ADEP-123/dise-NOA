@@ -30,9 +30,11 @@ newFactButton.addEventListener("click", (e) => {
     let newItemsOptions = ""
     console.log({ lastInventary1, lastCatalog });
     lastInventary1.forEach(element => {
-        newItemsOptions +=/*html*/`<option value="${element.idInvent}">${lastCatalog[element.idCatal].titulo}</option>`
+        newItemsOptions +=/*html*/`<option value="${element.idCatal}">${lastCatalog[element.idCatal].titulo}</option>`
     });
     selectItems.innerHTML = newItemsOptions
+    cargarCantOptions()
+
 })
 
 //Evento para cerrar el panel de nueva factura
@@ -69,9 +71,43 @@ newFacturaForm.addEventListener("submit", (e) => {
 selectItems.addEventListener("change", (e) => {
     e.preventDefault();
     e.stopPropagation();
+    cargarCantOptions()
+})
+
+function cargarCantOptions() {
     let nuevaCantOptions = ""
-    for (let i = 0; i < Number(lastInventary1[selectItems.value].cantidad); i++) {
+    let cant = 0;
+    for (let i = 0; i < lastInventary1.length; i++) {
+        if (lastInventary1[i].idCatal == Number(selectItems.value)) {
+            cant = Number(lastInventary1[i].cantidad)
+        }
+    }
+
+    for (let i = 0; i < cant; i++) {
         nuevaCantOptions +=/*html*/`<option value="${i + 1}">${i + 1}</option>`
     }
     selectCantItem.innerHTML = nuevaCantOptions
+}
+
+//Evento para agregar mas items a la factura:
+selectItemForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const formData = new FormData(selectItemForm);
+    const formObject = {};
+    formData.forEach((value, key) => {
+        formObject[key] = value
+    })
+    formObject.titulo = lastCatalog[Number(formObject.item)].titulo;
+    formObject.imagen = lastCatalog[Number(formObject.item)].imag;
+    const nuevaFila = document.createElement("tr");
+    nuevaFila.innerHTML =/*html*/`
+    <td>${formObject.item}</td>
+    <td>${formObject.titulo}</td>
+    <td><img src="${formObject.imagen}"></td>
+    <td>${formObject.cantidad}</td>
+    <td><button class="deleteItem" id="delBut${formObject.item}">x</button></td>
+    `;
+    itemsFactTable.insertAdjacentElement("beforeend", nuevaFila)
+    console.log({ formObject, lastCatalog });
 })
