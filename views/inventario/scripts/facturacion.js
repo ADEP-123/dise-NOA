@@ -5,10 +5,12 @@ const invenOrSelect = document.querySelector("#inventOr");
 const newFacturaForm = newFacturaMainDiv.querySelector("#newFacturaForm");
 const closeFactButton = newFacturaMainDiv.querySelector("#closeWindow")
 const selectItemForm = newFacturaMainDiv.querySelector("#selectItemForm");
-const selectItems = selectItemForm.querySelector("select")
+const selectItems = selectItemForm.querySelector("#item")
+const selectCantItem = selectItemForm.querySelector("#cantidad")
 let lastInventary1 = JSON.parse(localStorage.getItem("inv1"))
 let invent1Tittle = JSON.parse(localStorage.getItem("inv1Tittle"))
 let lastCatalog = JSON.parse(localStorage.getItem("products"))
+const itemsFactTable = newFacturaMainDiv.querySelector("#itemsFactTab")
 
 
 
@@ -61,4 +63,15 @@ newFacturaForm.addEventListener("submit", (e) => {
         }
     })
     console.log(formObject);
+})
+
+//Evento para cargar las opciones de cantidad del item segun lo que hay en el inventario
+selectItems.addEventListener("change", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    let nuevaCantOptions = ""
+    for (let i = 0; i < Number(lastInventary1[selectItems.value].cantidad); i++) {
+        nuevaCantOptions +=/*html*/`<option value="${i + 1}">${i + 1}</option>`
+    }
+    selectCantItem.innerHTML = nuevaCantOptions
 })
