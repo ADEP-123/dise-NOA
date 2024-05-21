@@ -16,13 +16,17 @@ let lastListFacturas = localStorage.getItem("listFact") ? JSON.parse(localStorag
 
 
 
+
 newFactButton.addEventListener("click", (e) => {
     e.preventDefault();
     e.stopPropagation();
+    //Limpiar variable factura
+    factura = { items: [] };
     //Actualizando constantes del localStorage
     lastInventary1 = JSON.parse(localStorage.getItem("inv1"))
     invent1Tittle = JSON.parse(localStorage.getItem("inv1Tittle"))
     lastCatalog = JSON.parse(localStorage.getItem("products"))
+    lastListFacturas = localStorage.getItem("listFact") ? JSON.parse(localStorage.getItem("listFact")) : [];
     //escondiendo el panel principal mostrando el de nueva factura
     mainPanel.style.display = "none";
     newFacturaMainDiv.style.display = "flex";
@@ -30,13 +34,11 @@ newFactButton.addEventListener("click", (e) => {
     invenOrSelect.innerHTML =/*html*/`<option value="invent1">${invent1Tittle}</option>`
     //Llenando el select de productos
     let newItemsOptions = ""
-    console.log({ lastInventary1, lastCatalog });
     lastInventary1.forEach(element => {
         newItemsOptions +=/*html*/`<option value="${element.idCatal}">${lastCatalog[element.idCatal].titulo}</option>`
     });
     selectItems.innerHTML = newItemsOptions
     cargarCantOptions()
-    console.log(lastListFacturas);
 })
 
 //Evento para cerrar el panel de nueva factura
@@ -67,7 +69,22 @@ newFacturaForm.addEventListener("submit", (e) => {
             factura[key] = value
         }
     })
-    console.log(formObject, factura);
+    if (factura.items.length == 0) {
+        alert("La factura no tiene items")
+        return
+    }
+    //Restar en el inventario
+    for (let i = 0; i < factura.items.length; i++) {
+        for (let j = 0; j < lastInventary1.length; j++) {
+            if (lastInventary1[j].idCatal == factura.items[i].idItem) {
+                lastInventary1[j].cantidad = Number(lastInventary1[j].cantidad) - Number(factura.items[i].cantidad)
+            }
+        }
+    }
+    localStorage.setItem('inv1', JSON.stringify(lastInventary1));
+    factura.id = lastListFacturas.length
+    lastListFacturas.push(factura)
+    localStorage.setItem('listFact', JSON.stringify(lastListFacturas));
 })
 
 //Evento para cargar las opciones de cantidad del item segun lo que hay en el inventario
@@ -140,8 +157,23 @@ selectItemForm.addEventListener("submit", (e) => {
     `;
     itemsFactTable.insertAdjacentElement("beforeend", nuevaFila)
 
+    //setear evento de escucha al boton que agregamos
+    const lastBotton = itemsFactTable.querySelectorAll(".deleteItem")[itemsFactTable.querySelectorAll(".deleteItem").length - 1]
+    lastBotton.addEventListener("click", (e) => {
+        e.preventDefault()
+        e.stopPropagation()
+        const idItem = Number(lastBotton.id.replace(/\D/g, ''));
+
+        //Elimiar Item de la lista
+        quitarItemFactura(idItem, lastBotton)
+
+
+    })
+
     //Setear los valores del item en la factura
     agregarItemAFactura(formObject.item, formObject.titulo, Number(formObject.cantidad), formObject.precUnit)
+
+
 })
 
 function agregarItemAFactura(idItem, titulo, cantidad, precUnit) {
@@ -156,4 +188,21 @@ function agregarItemAFactura(idItem, titulo, cantidad, precUnit) {
         const item = { idItem, titulo, cantidad, precUnit }
         factura.items.push(item)
     }
+}
+
+function quitarItemFactura(idItem, buttHTMl) {
+    const trItem = buttHTMl.parentNode.parentNode
+    const tdsItem = trItem.querySelectorAll("td")
+    const cantidadAelim = Number(tdsItem[3].innerHTML);
+    for (let i = 0; i < factura.items.length; i++) {
+        const element = factura.items[i]
+        if (element.idItem = idItem) {
+            if (element.cantidad == cantidadAelim) {
+                factura.items.splice(i, 1)
+            } else {
+                element.cantidad -= cantidadAelim
+            }
+        }
+    }
+    itemsFactTable.removeChild(trItem)
 }
