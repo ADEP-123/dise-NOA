@@ -14,6 +14,11 @@ const itemsFactTable = newFacturaMainDiv.querySelector("#itemsFactTab")
 let factura = { items: [] };
 let lastListFacturas = localStorage.getItem("listFact") ? JSON.parse(localStorage.getItem("listFact")) : [];
 
+//Lista facturas
+const listFactMainDiv = document.querySelector(".listFactMainDiv");
+const closeListFactButt = listFactMainDiv.querySelector("#closeWindow")
+const openListFactButt = document.querySelector("#listaFacturasCard");
+const listTarjFacDiv = document.querySelector(".listaFacturasDiv")
 
 
 
@@ -85,6 +90,7 @@ newFacturaForm.addEventListener("submit", (e) => {
     factura.id = lastListFacturas.length
     lastListFacturas.push(factura)
     localStorage.setItem('listFact', JSON.stringify(lastListFacturas));
+    alert("Factura realizada con exito")
 })
 
 //Evento para cargar las opciones de cantidad del item segun lo que hay en el inventario
@@ -188,6 +194,7 @@ function agregarItemAFactura(idItem, titulo, cantidad, precUnit) {
         const item = { idItem, titulo, cantidad, precUnit }
         factura.items.push(item)
     }
+    calcularTotal()
 }
 
 function quitarItemFactura(idItem, buttHTMl) {
@@ -205,4 +212,60 @@ function quitarItemFactura(idItem, buttHTMl) {
         }
     }
     itemsFactTable.removeChild(trItem)
+    calcularTotal()
 }
+function calcularTotal() {
+    if (factura.length == 0) {
+        return
+    }
+    let totFact = 0;
+    factura.items.forEach(element => {
+        totFact += Number(element.cantidad) * Number(element.precUnit)
+    });
+    factura.totFact = totFact
+}
+
+//abrir lista de facturas div
+openListFactButt.addEventListener("click", e => {
+    e.preventDefault();
+    e.stopPropagation();
+    mainPanel.style.display = "none";
+    listFactMainDiv.style.display = "flex";
+    lastListFacturas = localStorage.getItem("listFact") ? JSON.parse(localStorage.getItem("listFact")) : [];
+    if (lastListFacturas.length == 0) {
+        alert("No hay facturas registradas")
+        return
+    }
+    for (let i = 0; i < lastListFacturas.length; i++) {
+        const element = lastListFacturas[i]
+        const card = document.createElement("div")
+        card.classList.add("facturaCard");
+        card.classList.add("shadowBorder");
+        card.id = `fact${element.id}`;
+        card.innerHTML =/*html*/`<h1>Factura ${element.id}</h1>
+        <p><b>Fecha: </b>${element.fecha}
+        <br><b>Nombre Cliente: </b>${element.nomClient}
+        <br><b>Id Cliente: </b>${element.idClient}
+        <br><b>Valor Facturado: </b>$ ${element.totFact}
+        </p>
+        <p><b>Items</b></p>
+        <div class="itemsCardFact"></div>`
+        listTarjFacDiv.insertAdjacentElement("beforeend", card);
+        const cardHtml = listTarjFacDiv.querySelector(`#fact${element.id}`)
+        const itemsCardHtml = cardHtml.querySelector(".itemsCardFact")
+        let pitems = ""
+        element.items.forEach(item => {
+            pitems +=/*html*/`<p>${item.titulo}</p>`
+        });
+        itemsCardHtml.innerHTML = pitems;
+    }
+    console.log(lastListFacturas);
+})
+
+// cerar lista de facturas div
+closeListFactButt.addEventListener("click", e => {
+    e.preventDefault();
+    e.stopPropagation();
+    mainPanel.style.display = "flex";
+    listFactMainDiv.style.display = "none";
+})

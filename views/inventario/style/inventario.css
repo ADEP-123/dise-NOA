@@ -444,7 +444,7 @@ li {
 
 
 /* catalogoDiv */
-.catalMainDiv, .newFacturaMainDiv {
+.catalMainDiv, .newFacturaMainDiv,.listFactMainDiv {
     height: 100%;
     width: 100%;
     position: absolute;
@@ -488,7 +488,7 @@ li {
 }
 
 /* Catalogo */
-.catalDiv,.newFactBodyDiv {
+.catalDiv,.newFactBodyDiv,.listaFacturasDiv {
     height: 80%;
     width: 100%;
     display: flex;
@@ -630,7 +630,7 @@ li {
 
 .catalMainDiv,
 .invent1MainDiv,
-.newFacturaMainDiv {
+.newFacturaMainDiv,.listFactMainDiv {
     height: 100%;
     width: 100%;
     position: absolute;
