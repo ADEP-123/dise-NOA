@@ -6,11 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
     <link rel="stylesheet" href="style/inventario.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
 
 <body>
@@ -85,10 +89,21 @@
                 </div>
                 <button class="catalButton">Catalogo</button>
             </div>
+            <!-- PANEL PRINCIPAL DE FACTURACION -->
             <div class="billDiv">
-                <h1 class="iventTittle">Facturacion</h1>
-                <h3>Modulo en construccion</h3>
-                <img src="../user/storage/giphy.gif" alt="">
+                <div class="factCard" id="newFactDivButt">
+                    <h2>Facturacion</h2>
+                    <span class="material-symbols-outlined">
+                        note_add
+                    </span>
+                </div>
+                <div class="factCard" id="listaFacturasCard">
+                    <h2>Facturas <br>realizadas</h2>
+                    <span class="material-symbols-outlined">
+                        quick_reference_all
+                    </span>
+                </div>
+
             </div>
             <div class="module3Div">
                 <h1 class="iventTittle">Modulo 3</h1>
@@ -369,7 +384,93 @@
         </div>
     </div>
 
+    <!-- FACTURACION -->
+    <div class="newFacturaMainDiv">
+        <div class="panelDiv shadowBorder">
+            <a href="">
+                <span class="material-symbols-outlined butonSpan">
+                    home
+                </span>
+            </a>
+            <h1>Factura Nueva</h1>
+            <button id="closeWindow">X</button>
+        </div>
+        <div class="newFactBodyDiv shadowBorder">
+            <form id="newFacturaForm">
+                <label for="puntoPago">Punto de pago:</label>
+                <input type="text" readonly placeholder="Punto 1" id="puntoPago" name="puntoPago" value="Punto 1">
+                <br>
+                <label for="fecha">Fecha:</label>
+                <input type="date" id="fecha" name="fecha">
+                <br>
+                <label for="inventOr">Inventario de origen:</label>
+                <select name="inventOr" id="inventOr">
+                    <option value="invent1">Inventario 1</option>
+                </select>
+                <br>
+                <label for="nomClient">Nombre cliente:</label>
+                <input type="text" id="nomClient" name="nomClient">
+                <br>
+                <label for="telClient">Telefono cliente:</label>
+                <input type="text" id="telClient" name="telClient">
+                <br>
+                <label for="idClient">Id cliente:</label>
+                <input type="text" id="idClient" name="idClient">
+                <br>
+                <input type="submit" value="Facturar">
+            </form>
+
+            <div class="selectItemDiv">
+                <form id="selectItemForm">
+                    <label for="item">Item</label>
+                    <select name="item" id="item"></select>
+                    <br>
+                    <label for="cantidad">Cantidad</label>
+                    <select name="cantidad" id="cantidad"></select>
+                    <br>
+                    <label for="precUnit">Precio unitario</label>
+                    <input type="number" placeholder="$0" id="precUnit" name="precUnit">
+                    <br>
+                    <input type="submit" value="Agregar">
+                </form>
+            </div>
+
+            <hr>
+
+            <div class="itemsFactDiv">
+                <table class="catal" id="itemsFactTab">
+                    <tr>
+                        <th>ID</th>
+                        <th>Tiutlo</th>
+                        <th>Imagen</th>
+                        <th>Cantidad</th>
+                        <th>PrecUnit</th>
+                        <th>DeleteItem</th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="listFactMainDiv">
+        <div class="panelDiv shadowBorder">
+            <a href="">
+                <span class="material-symbols-outlined butonSpan">
+                    home
+                </span>
+            </a>
+            <h1>Lista de facturas</h1>
+            <button id="closeWindow">X</button>
+        </div>
+        <div class="listaFacturasDiv shadowBorder">
+
+        </div>
+    </div>
+
+
+
     <script src="scripts/inventario.js" type="module"></script>
+    <script src="scripts/facturacion.js" type="module"></script>
 
     <!--USER PAGE-->
     <script src="../user/scripts/user.js" type="module"></script>

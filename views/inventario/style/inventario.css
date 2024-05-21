@@ -145,7 +145,7 @@ h1, h2{
 }
 
 /* Div del inventario */
-.inventDiv {
+.inventDiv{
     width: 100%;
     height: 100%;
     display: none;
@@ -167,7 +167,7 @@ h1, h2{
     width: 100%;
 }
 
-.inventCard {
+.inventCard, .factCard {
     border: 1px solid var(--gray);
     padding: 3%;
     border-radius: 10px;
@@ -211,7 +211,8 @@ h1, h2{
 }
 
 .inventCard:hover,
-.catalButton:hover {
+.catalButton:hover,
+.factCard:hover {
     background-color: var(--paleOrange);
     cursor: pointer;
 }
@@ -232,15 +233,15 @@ h1, h2{
     width: 100%;
     height: 100%;
     display: none;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: space-around;
     color: black;
     padding: 50px;
 }
 
-.billDiv img {
-    width: 300px;
+.bidllDiv div{
+    width: 50%;
 }
 
 .module3Div {
@@ -443,7 +444,7 @@ li {
 
 
 /* catalogoDiv */
-.catalMainDiv {
+.catalMainDiv, .newFacturaMainDiv,.listFactMainDiv {
     height: 100%;
     width: 100%;
     position: absolute;
@@ -487,7 +488,7 @@ li {
 }
 
 /* Catalogo */
-.catalDiv {
+.catalDiv,.newFactBodyDiv,.listaFacturasDiv {
     height: 80%;
     width: 100%;
     display: flex;
@@ -628,7 +629,8 @@ li {
 }
 
 .catalMainDiv,
-.invent1MainDiv {
+.invent1MainDiv,
+.newFacturaMainDiv,.listFactMainDiv {
     height: 100%;
     width: 100%;
     position: absolute;
@@ -644,5 +646,31 @@ li {
 .invent1MainDiv{
     background-color: var(--blueSea);
 }
+.factCard{
+    text-align: center;
+}
 
-
+.factCard span{
+    font-size: 3vw;
+}
+.listaFacturasDiv{
+    gap:2%
+}
+.facturaCard{
+    width: 20%;
+    background-color: var(--blueSea);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 35%;
+    padding: 1%;
+    border: 1px solid black;
+}
+.facturaCard p b{
+    font-size: 1.1em;
+    font-weight: bold;
+}
+.facturaCard div{
+    overflow-y: auto;
+}
