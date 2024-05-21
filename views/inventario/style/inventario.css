@@ -653,3 +653,24 @@ li {
 .factCard span{
     font-size: 3vw;
 }
+.listaFacturasDiv{
+    gap:2%
+}
+.facturaCard{
+    width: 20%;
+    background-color: var(--blueSea);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 35%;
+    padding: 1%;
+    border: 1px solid black;
+}
+.facturaCard p b{
+    font-size: 1.1em;
+    font-weight: bold;
+}
+.facturaCard div{
+    overflow-y: auto;
+}

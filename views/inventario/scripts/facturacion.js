@@ -259,7 +259,6 @@ openListFactButt.addEventListener("click", e => {
         });
         itemsCardHtml.innerHTML = pitems;
     }
-    console.log(lastListFacturas);
 })
 
 // cerar lista de facturas div
