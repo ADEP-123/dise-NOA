@@ -781,9 +781,10 @@ li {
 .listaFacturasDiv {
     gap: 2%;
     overflow-y: scroll;
+    flex-wrap: wrap;
 }
 .facturaCard {
-    width: 25%;
+    width: 20%;
     min-width: 250px;
     background-color: var(--blueSea);
     display: flex;
