@@ -387,43 +387,56 @@
                 <button id="closeWindow">X</button>
             </div>
             <div class="newFactBodyDiv shadowBorder">
-                <form id="newFacturaForm">
-                    <label for="puntoPago">Punto de pago:</label>
-                    <input type="text" readonly placeholder="Punto 1" id="puntoPago" name="puntoPago" value="Punto 1" />
-                    <br />
-                    <label for="fecha">Fecha:</label>
-                    <input type="date" id="fecha" name="fecha" />
-                    <br />
-                    <label for="inventOr">Inventario de origen:</label>
-                    <select name="inventOr" id="inventOr">
-                        <option value="invent1">Inventario 1</option>
-                    </select>
-                    <br />
-                    <label for="nomClient">Nombre cliente:</label>
-                    <input type="text" id="nomClient" name="nomClient" />
-                    <br />
-                    <label for="telClient">Telefono cliente:</label>
-                    <input type="text" id="telClient" name="telClient" />
-                    <br />
-                    <label for="idClient">Id cliente:</label>
-                    <input type="text" id="idClient" name="idClient" />
-                    <br />
-                    <input type="submit" value="Facturar" />
-                </form>
-
-                <div class="selectItemDiv">
-                    <form id="selectItemForm">
-                        <label for="item">Item</label>
-                        <select name="item" id="item"></select>
-                        <br />
-                        <label for="cantidad">Cantidad</label>
-                        <input type="number" step="1" name="cantidad" id="cantidad" min="0" value="0" />
-                        <br />
-                        <label for="precUnit">Precio unitario</label>
-                        <input type="number" placeholder="$0" id="precUnit" name="precUnit" />
-                        <br />
-                        <input type="submit" value="Agregar" />
+                <div class="containerFacturasData">
+                    <form id="newFacturaForm">
+                        <div>
+                            <label for="puntoPago">Punto de pago:</label>
+                            <input type="text" readonly placeholder="Punto 1" id="puntoPago" name="puntoPago" value="Punto 1" />
+                        </div>
+                        <div>
+                            <label for="fecha">Fecha:</label>
+                            <input type="date" id="fecha" name="fecha" />
+                        </div>
+                        <div>
+                            <label for="inventOr">Inventario de origen:</label>
+                            <select name="inventOr" id="inventOr">
+                                <option value="invent1">Inventario 1</option>
+                            </select>
+                        </div>
+    
+                        <div>
+                            <label for="nomClient">Nombre cliente:</label>
+                            <input type="text" id="nomClient" name="nomClient" />
+                        </div>
+                        <div>
+                            <label for="telClient">Telefono cliente:</label>
+                            <input type="text" id="telClient" name="telClient" />
+                        </div>
+    
+                        <div>
+                            <label for="idClient">Id cliente:</label>
+                            <input type="text" id="idClient" name="idClient" />
+                        </div>
+                        <input type="submit" value="Facturar" class="submitClient"/>
                     </form>
+    
+                    <div class="selectItemDiv">
+                        <form id="selectItemForm">
+                            <div>
+                                <label for="item">Item</label>
+                                <select name="item" id="item"></select>
+                            </div>
+                            <div>
+                                <label for="cantidad">Cantidad</label>
+                                <input type="number" step="1" name="cantidad" id="cantidad" min="0" value="0" />
+                            </div>
+                            <div>
+                                <label for="precUnit">Precio unitario</label>
+                                <input type="number" placeholder="$0" id="precUnit" name="precUnit" />
+                            </div>
+                            <input type="submit" value="Agregar" class="submitClient"/>
+                        </form>
+                    </div>
                 </div>
 
                 <hr />
@@ -455,7 +468,7 @@
         </div>
 
         <script src="scripts/inventario.js" type="module"></script>
-        <script src="scripts/facturacion.js" type="module"></script>
+        <script src="scripts/facturacion.js" type="module" defer></script>
 
         <!--USER PAGE-->
         <script src="../user/scripts/user.js" type="module"></script>
