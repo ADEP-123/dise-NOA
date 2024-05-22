@@ -109,10 +109,10 @@ function cargarCantOptions() {
         }
     }
 
-    for (let i = 0; i < cant; i++) {
-        nuevaCantOptions +=/*html*/`<option value="${i + 1}">${i + 1}</option>`
-    }
-    selectCantItem.innerHTML = nuevaCantOptions
+    // for (let i = 0; i < cant; i++) {
+    //     nuevaCantOptions +=/*html*/`<option value="${i + 1}">${i + 1}</option>`
+    // }
+    selectCantItem.setAttribute("max", cant)
 }
 
 //Evento para agregar mas items a la factura:
