@@ -607,7 +607,6 @@ li {
     flex-direction: row;
     padding: 1%;
     background-color: var(--white);
-    flex-wrap: wrap;
     justify-content: center;
 }
 
