@@ -22,6 +22,8 @@ const inputTittle1 = document.querySelector("#inputTittle1");
 if (invent1Tittle) {
     inputTittle1.value = JSON.parse(invent1Tittle)
     document.querySelector("#inventName1").innerHTML = JSON.parse(invent1Tittle)
+} else {
+    localStorage.setItem("inv1Tittle", JSON.stringify("Inventario 1"));
 }
 
 catalButton.addEventListener("click", e => {
