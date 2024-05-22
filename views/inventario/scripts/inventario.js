@@ -203,22 +203,6 @@ backButt.addEventListener("click", e => {
 //inventario
 //localStorage.removeItem("inv1")
 
-if (lastInventary1) {
-    lastInventary1 = JSON.parse(lastInventary1)
-    renderAllInfo(lastProducts, lastInventary1, "inventario")
-} else {
-    lastInventary1 = []
-    newRowFunction(
-        0,
-        "-",
-        "-",
-        "https://cdn-icons-png.flaticon.com/512/1554/1554591.png",
-        0,
-        "inventario"
-    )
-}
-llenarSelectsInvent(lastProducts, lastInventary1)
-
 const invent1Butt = document.querySelector("#invent1Butt")
 const inventMainDiv = document.querySelector("#invent1MainDiv")
 const inventario = document.querySelector("#invent")
@@ -226,6 +210,25 @@ const modProdSelectInvent = document.querySelector("#modProdSelectInvent")
 invent1Butt.addEventListener("click", e => {
     e.preventDefault();
     e.stopPropagation();
+
+    lastInventary1 = localStorage.getItem("inv1")
+
+    if (lastInventary1) {
+        lastInventary1 = JSON.parse(lastInventary1)
+        renderAllInfo(lastProducts, lastInventary1, "inventario")
+    } else {
+        lastInventary1 = []
+        newRowFunction(
+            0,
+            "-",
+            "-",
+            "https://cdn-icons-png.flaticon.com/512/1554/1554591.png",
+            0,
+            "inventario"
+        )
+    }
+    llenarSelectsInvent(lastProducts, lastInventary1)
+
     if (e.target.classList.length == 2) {
         if (e.target.classList[1] != "editTittle") {
             mainPanel.style.display = "none";
