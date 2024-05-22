@@ -122,6 +122,27 @@ h2 {
     background-color: #f0f0f0;
 }
 
+/* Estilos para el input */
+input[type='password'] {
+    width: 50%;
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    outline: none;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s;
+}
+
+/* Cambiar el color del borde inferior al hacer foco en el input */
+input[type='password']:focus {
+    border-bottom: 2px solid #007bff;
+}
+
+/* Estilos para el placeholder */
+input[type='password']::placeholder {
+    color: #aaa;
+}
+
 /* .userInfo {
     height: 30%;
     background-color: white;
@@ -214,7 +235,7 @@ h2 {
     justify-content: center;
     align-items: center;
     border-radius: 30px;
-    background-color: #63caa7;
+    background-color: #fcd6a4;
     user-select: none;
     transition: 0.2s;
 }
@@ -419,26 +440,21 @@ h2 {
     display: flex;
     flex-direction: column;
     width: 80%;
-}
-
-.settings__content__password label {
-    font-size: 1.3vw;
+    align-items: center;
 }
 
 .settings__content__password input {
-    font-size: 1.5vw;
     border-radius: 100px;
     padding-left: 10px;
-    width: 100%;
 }
 
 .settings__content__password button {
-    border: 0;
     width: 50%;
-    background-color: white;
-    outline: 2px solid black;
-    border-radius: 100px;
-    padding: 10px 25px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: var(--Orange);
+    color: var(--black);
+    border: 1px solid var(--Orange);
     font-size: 1.2vw;
     display: flex;
     align-items: center;
