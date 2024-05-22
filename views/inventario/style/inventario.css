@@ -81,6 +81,9 @@ h2 {
     justify-content: center;
     flex-direction: column;
 }
+.profile__info h4 {
+    font-weight: bold;
+}
 
 /* Estilos para el menú desplegable */
 .dropdown-menu {
@@ -373,6 +376,7 @@ input[type='password']::placeholder {
     height: 70%;
     display: none;
     padding-top: 2vw;
+    padding: 2rem;
 }
 
 .settings__content {
@@ -475,6 +479,7 @@ input[type='password']::placeholder {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 2vw;
+    padding: 0 1rem;
 }
 
 .help__content > * {
@@ -482,7 +487,7 @@ input[type='password']::placeholder {
     display: flex;
     flex-direction: column;
     gap: 1vw;
-    background-color: #63caa7;
+    background-color: #fcd6a4;
     transition: 0.2s;
 }
 .help__content > *:hover {
